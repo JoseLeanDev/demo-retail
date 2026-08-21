@@ -173,3 +173,4 @@ vercel --prod
 ---
 
 *CFO AI v1.0 - Plataforma Financiera Inteligente*
+# Demo Retail - Deploy Trigger
