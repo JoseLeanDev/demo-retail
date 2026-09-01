@@ -22,14 +22,14 @@ const formatGTQ = (value) => {
 
 // Datos de ejemplo - En producción vendrían del API
 const productosData = [
-  { id: 1, nombre: 'Arroz 5lb (Saco)', categoria: 'Alimentos', unidadesVendidas: 2450, ingresos: 882000, margen: 32, tendencia: 'up', stock: 'ok' },
-  { id: 2, nombre: 'Coca-Cola 2L (8 unds)', categoria: 'Bebidas', unidadesVendidas: 1890, ingresos: 567000, margen: 28, tendencia: 'up', stock: 'bajo' },
-  { id: 3, nombre: 'Aceite Vegetal 1L (12 unds)', categoria: 'Alimentos', unidadesVendidas: 1240, ingresos: 496000, margen: 35, tendencia: 'down', stock: 'ok' },
-  { id: 4, nombre: 'Detergente Líquido 3L', categoria: 'Limpieza', unidadesVendidas: 1100, ingresos: 385000, margen: 25, tendencia: 'up', stock: 'ok' },
-  { id: 5, nombre: 'Shampoo Head & Shoulders 400ml', categoria: 'Cuidado Personal', unidadesVendidas: 980, ingresos: 441000, margen: 18, tendencia: 'down', stock: 'crítico' },
-  { id: 6, nombre: 'Papel Higiénico 12 rollos', categoria: 'Hogar', unidadesVendidas: 750, ingresos: 375000, margen: 22, tendencia: 'up', stock: 'ok' },
-  { id: 7, nombre: 'Croquetas Dog Chow 8kg', categoria: 'Mascotas', unidadesVendidas: 680, ingresos: 204000, margen: 40, tendencia: 'up', stock: 'ok' },
-  { id: 8, nombre: 'Jabón de Baño 120g (6 unds)', categoria: 'Cuidado Personal', unidadesVendidas: 620, ingresos: 186000, margen: 30, tendencia: 'stable', stock: 'ok' },
+  { id: 1, nombre: 'Arroz 5lb (Saco)', categoria: 'Camisetas', unidadesVendidas: 2450, ingresos: 882000, margen: 32, tendencia: 'up', stock: 'ok' },
+  { id: 2, nombre: 'Coca-Cola 2L (8 unds)', categoria: 'Zapatos', unidadesVendidas: 1890, ingresos: 567000, margen: 28, tendencia: 'up', stock: 'bajo' },
+  { id: 3, nombre: 'Aceite Vegetal 1L (12 unds)', categoria: 'Camisetas', unidadesVendidas: 1240, ingresos: 496000, margen: 35, tendencia: 'down', stock: 'ok' },
+  { id: 4, nombre: 'Detergente Líquido 3L', categoria: 'Jeans', unidadesVendidas: 1100, ingresos: 385000, margen: 25, tendencia: 'up', stock: 'ok' },
+  { id: 5, nombre: 'Shampoo Head & Shoulders 400ml', categoria: 'Chamarras', unidadesVendidas: 980, ingresos: 441000, margen: 18, tendencia: 'down', stock: 'crítico' },
+  { id: 6, nombre: 'Papel Higiénico 12 rollos', categoria: 'Vestidos', unidadesVendidas: 750, ingresos: 375000, margen: 22, tendencia: 'up', stock: 'ok' },
+  { id: 7, nombre: 'Croquetas Dog Chow 8kg', categoria: 'Pantalones', unidadesVendidas: 680, ingresos: 204000, margen: 40, tendencia: 'up', stock: 'ok' },
+  { id: 8, nombre: 'Jabón de Baño 120g (6 unds)', categoria: 'Chamarras', unidadesVendidas: 620, ingresos: 186000, margen: 30, tendencia: 'stable', stock: 'ok' },
 ]
 
 const tiendasData = [

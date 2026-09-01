@@ -40,21 +40,25 @@ const formatGTQ = (value) => {
   return 'Q ' + value.toLocaleString('es-GT')
 }
 
-// ========== DATOS DEMO RETAIL ==========
+// ========== DATOS DEMO RETAIL DE ROPA — MULTI MARCA / MULTI TIENDA / MULTI PAÍS ==========
 const ventasPorCategoria = [
-  { nombre: 'Alimentos', ventas: 2850000, presupuesto: 2700000, margen: 22, transacciones: 8450 },
-  { nombre: 'Bebidas', ventas: 1620000, presupuesto: 1500000, margen: 35, transacciones: 4200 },
-  { nombre: 'Limpieza', ventas: 980000, presupuesto: 900000, margen: 28, transacciones: 3100 },
-  { nombre: 'Cuidado Personal', ventas: 720000, presupuesto: 700000, margen: 42, transacciones: 1850 },
-  { nombre: 'Hogar', ventas: 580000, presupuesto: 600000, margen: 38, transacciones: 1200 },
-  { nombre: 'Mascotas', ventas: 245000, presupuesto: 250000, margen: 32, transacciones: 680 },
+  { nombre: 'Zapatos', ventas: 3850000, presupuesto: 3600000, margen: 52, transacciones: 5200 },
+  { nombre: 'Camisetas', ventas: 2100000, presupuesto: 2000000, margen: 58, transacciones: 8500 },
+  { nombre: 'Jeans', ventas: 1620000, presupuesto: 1500000, margen: 55, transacciones: 4200 },
+  { nombre: 'Chamarras', ventas: 1200000, presupuesto: 1100000, margen: 48, transacciones: 1850 },
+  { nombre: 'Vestidos', ventas: 980000, presupuesto: 900000, margen: 60, transacciones: 3100 },
+  { nombre: 'Pantalones', ventas: 720000, presupuesto: 700000, margen: 56, transacciones: 2400 },
 ]
 
 const sucursales = [
-  { nombre: 'Sucursal Centro', ventas: 3850000, meta: 3600000, transacciones: 5200, ticket: 740, clientesDia: 173 },
-  { nombre: 'Sucursal Norte', ventas: 1620000, meta: 1500000, transacciones: 2100, ticket: 771, clientesDia: 70 },
-  { nombre: 'Sucursal Sur', ventas: 1280000, meta: 1400000, transacciones: 1850, ticket: 692, clientesDia: 62 },
-  { nombre: 'Sucursal Zona 10', ventas: 620000, meta: 650000, transacciones: 680, ticket: 912, clientesDia: 23 },
+  { nombre: 'Zara Zona 10 — Guatemala', ventas: 2850000, meta: 2700000, transacciones: 3200, ticket: 890, clientesDia: 145 },
+  { nombre: 'Nike Store Multiplaza — Panamá', ventas: 2100000, meta: 2000000, transacciones: 2800, ticket: 750, clientesDia: 98 },
+  { nombre: 'Adidas Originals — San Salvador', ventas: 1850000, meta: 1800000, transacciones: 2500, ticket: 740, clientesDia: 85 },
+  { nombre: 'Levis City Mall — Costa Rica', ventas: 1620000, meta: 1500000, transacciones: 2100, ticket: 771, clientesDia: 70 },
+  { nombre: 'Puma Mall Las Américas — Honduras', ventas: 1280000, meta: 1200000, transacciones: 1850, ticket: 692, clientesDia: 62 },
+  { nombre: 'H&M Altaplaza — Panamá', ventas: 980000, meta: 950000, transacciones: 1450, ticket: 676, clientesDia: 48 },
+  { nombre: 'CK Miraflores — Guatemala', ventas: 720000, meta: 700000, transacciones: 980, ticket: 735, clientesDia: 35 },
+  { nombre: 'Tommy Hilfiger Antigua — Guatemala', ventas: 580000, meta: 550000, transacciones: 780, ticket: 744, clientesDia: 28 },
 ]
 
 const cxcAging = [
@@ -65,10 +69,10 @@ const cxcAging = [
 ]
 
 const cxpProximas = [
-  { proveedor: 'Coca-Cola FEMSA', monto: 285000, vence: '2 días', tipo: 'Bebidas' },
-  { proveedor: 'PepsiCo', monto: 145000, vence: '5 días', tipo: 'Snacks/Bebidas' },
-  { proveedor: 'Unilever', monto: 95000, vence: '7 días', tipo: 'Limpieza' },
-  { proveedor: 'P&G', monto: 68000, vence: '10 días', tipo: 'Cuidado Personal' },
+  { proveedor: 'Nike Centroamérica', monto: 285000, vence: '2 días', tipo: 'Zapatos' },
+  { proveedor: 'Adidas LATAM', monto: 145000, vence: '5 días', tipo: 'Camisetas' },
+  { proveedor: 'Inditex Guatemala', monto: 95000, vence: '7 días', tipo: 'Jeans' },
+  { proveedor: 'Levi Strauss CA', monto: 68000, vence: '10 días', tipo: 'Chamarras' },
 ]
 
 const tendenciaVentas = [
@@ -82,20 +86,20 @@ const tendenciaVentas = [
 ]
 
 const inventarioPorCategoria = [
-  { categoria: 'Alimentos', stock: 1250, minimo: 800, rotacion: 8.5, valor: 1850000 },
-  { categoria: 'Bebidas', stock: 890, minimo: 600, rotacion: 12.2, valor: 920000 },
-  { categoria: 'Limpieza', stock: 650, minimo: 500, rotacion: 6.8, valor: 485000 },
-  { categoria: 'Cuidado Personal', stock: 420, minimo: 400, rotacion: 5.2, valor: 310000 },
-  { categoria: 'Hogar', stock: 380, minimo: 350, rotacion: 4.1, valor: 225000 },
-  { categoria: 'Mascotas', stock: 180, minimo: 150, rotacion: 3.8, valor: 95000 },
+  { categoria: 'Zapatos', stock: 1250, minimo: 800, rotacion: 8.5, valor: 1850000 },
+  { categoria: 'Camisetas', stock: 890, minimo: 600, rotacion: 12.2, valor: 920000 },
+  { categoria: 'Jeans', stock: 650, minimo: 500, rotacion: 6.8, valor: 485000 },
+  { categoria: 'Chamarras', stock: 420, minimo: 400, rotacion: 5.2, valor: 310000 },
+  { categoria: 'Vestidos', stock: 380, minimo: 350, rotacion: 4.1, valor: 225000 },
+  { categoria: 'Pantalones', stock: 180, minimo: 150, rotacion: 3.8, valor: 95000 },
 ]
 
 const topProductos = [
-  { nombre: 'Arroz 5lb', categoria: 'Alimentos', ventas: 28500, unidades: 9500, stock: 320, margen: 18 },
-  { nombre: 'Coca-Cola 2L', categoria: 'Bebidas', ventas: 22400, unidades: 5600, stock: 180, margen: 32 },
-  { nombre: 'Aceite 1L', categoria: 'Alimentos', ventas: 19800, unidades: 6600, stock: 210, margen: 15 },
-  { nombre: 'Jabón en Barra', categoria: 'Limpieza', ventas: 16200, unidades: 5400, stock: 145, margen: 28 },
-  { nombre: 'Shampoo 400ml', categoria: 'Cuidado Personal', ventas: 14800, unidades: 1850, stock: 85, margen: 45 },
+  { nombre: 'Nike Air Force 1 Blanco', categoria: 'Zapatos', ventas: 28500, unidades: 9500, stock: 320, margen: 50 },
+  { nombre: 'Nike Dri-FIT Camiseta', categoria: 'Camisetas', ventas: 22400, unidades: 5600, stock: 180, margen: 60 },
+  { nombre: 'Zara Slim Fit Jeans', categoria: 'Jeans', ventas: 19800, unidades: 6600, stock: 210, margen: 60 },
+  { nombre: 'Adidas Ultraboost 22', categoria: 'Zapatos', ventas: 16200, unidades: 5400, stock: 145, margen: 40 },
+  { nombre: 'Levis 501 Original Fit', categoria: 'Jeans', ventas: 14800, unidades: 1850, stock: 85, margen: 50 },
 ]
 
 const COLORS = ['#10b981', '#f59e0b', '#f97316', '#ef4444']

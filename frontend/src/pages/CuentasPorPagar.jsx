@@ -27,10 +27,10 @@ export default function CuentasPorPagar() {
   
   // Mock data extendido
   const todasLasCxP = [
-    { proveedor: 'Coca-Cola FEMSA Guatemala', nit: '1234567-8', monto: 345000, dias_restantes: 3, descuento_pronto_pago: true, factura: 'FAC-PROV-452', vencimiento: '2026-04-10', tipo: 'Bebidas', condicion: '2% a 7 días' },
-    { proveedor: 'Unilever Centroamérica', nit: '8765432-1', monto: 89000, dias_restantes: 5, descuento_pronto_pago: false, factura: 'FAC-PROV-453', vencimiento: '2026-04-12', tipo: 'Limpieza', condicion: 'Neto 30' },
-    { proveedor: 'P&G Guatemala', nit: '5678901-2', monto: 45000, dias_restantes: 8, descuento_pronto_pago: true, factura: 'FAC-PROV-450', vencimiento: '2026-04-15', tipo: 'Cuidado Personal', condicion: '3% a 10 días' },
-    { proveedor: 'Nestlé Guatemala', nit: '1098765-4', monto: 275000, dias_restantes: 12, descuento_pronto_pago: false, factura: 'FAC-PROV-448', vencimiento: '2026-04-20', tipo: 'Alimentos', condicion: 'Neto 30' },
+    { proveedor: 'Nike Centroamérica Guatemala', nit: '1234567-8', monto: 345000, dias_restantes: 3, descuento_pronto_pago: true, factura: 'FAC-PROV-452', vencimiento: '2026-04-10', tipo: 'Zapatos', condicion: '2% a 7 días' },
+    { proveedor: 'Zara Guatemala Centroamérica', nit: '8765432-1', monto: 89000, dias_restantes: 5, descuento_pronto_pago: false, factura: 'FAC-PROV-453', vencimiento: '2026-04-12', tipo: 'Jeans', condicion: 'Neto 30' },
+    { proveedor: 'Calvin Klein Guatemala', nit: '5678901-2', monto: 45000, dias_restantes: 8, descuento_pronto_pago: true, factura: 'FAC-PROV-450', vencimiento: '2026-04-15', tipo: 'Chamarras', condicion: '3% a 10 días' },
+    { proveedor: 'Under Armour Guatemala', nit: '1098765-4', monto: 275000, dias_restantes: 12, descuento_pronto_pago: false, factura: 'FAC-PROV-448', vencimiento: '2026-04-20', tipo: 'Camisetas', condicion: 'Neto 30' },
     { proveedor: 'Transporte Rápido', nit: '3456789-0', monto: 28000, dias_restantes: 15, descuento_pronto_pago: false, factura: 'FAC-PROV-455', vencimiento: '2026-04-23', tipo: 'Logística', condicion: 'Neto 15' },
     { proveedor: 'Kimberly-Clark México', nit: '6543210-9', monto: 156000, dias_restantes: 18, descuento_pronto_pago: true, factura: 'FAC-PROV-445', vencimiento: '2026-04-25', tipo: 'Hogar', condicion: '5% a 15 días' },
     { proveedor: 'Seguridad Corporativa', nit: '7890123-4', monto: 45000, dias_restantes: 22, descuento_pronto_pago: false, factura: 'FAC-PROV-460', vencimiento: '2026-04-30', tipo: 'Servicios', condicion: 'Neto 30' },

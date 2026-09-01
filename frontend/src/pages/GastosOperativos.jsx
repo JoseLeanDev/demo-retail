@@ -48,7 +48,7 @@ const CATEGORIAS_GASTO = [
     icono: BeakerIcon,
     color: '#3B82F6',
     descripcion: 'Compra de productos para venta, abastecimiento de estantes',
-    proveedorPrincipal: 'Coca-Cola FEMSA / Unilever',
+    proveedorPrincipal: 'Nike FEMSA / Zara',
     terminos: '2/10 n/30',
     frecuencia: 'semanal',
   },
@@ -141,8 +141,8 @@ const MESES_HISTORIAL = ['Ene 2026', 'Feb 2026', 'Mar 2026', 'Abr 2026', 'May 20
 // Productos ofrecidos por Supermercados Unidos
 const SERVICIOS = [
   { id: 1, nombre: 'Arroz y Granos Básicos', descripcion: 'Arroz, frijol, azúcar, aceite, harina', precioBase: 28, unidad: 'unidad', volumenMensual: 8500, clientes: 1400 },
-  { id: 2, nombre: 'Bebidas y Refrescos', descripcion: 'Coca-Cola, Pepsi, jugos, cervezas, agua', precioBase: 18, unidad: 'unidad', volumenMensual: 12000, clientes: 1800 },
-  { id: 3, nombre: 'Limpieza y Aseo', descripcion: 'Detergente, cloro, jabón, suavizante', precioBase: 45, unidad: 'unidad', volumenMensual: 6500, clientes: 1200 },
+  { id: 2, nombre: 'Zapatos y Refrescos', descripcion: 'Nike, Adidas, jugos, cervezas, agua', precioBase: 18, unidad: 'unidad', volumenMensual: 12000, clientes: 1800 },
+  { id: 3, nombre: 'Jeans y Aseo', descripcion: 'Detergente, cloro, jabón, suavizante', precioBase: 45, unidad: 'unidad', volumenMensual: 6500, clientes: 1200 },
   { id: 4, nombre: 'Cuidado Personal', descripcion: 'Shampoo, pasta dental, desodorante, jabón', precioBase: 52, unidad: 'unidad', volumenMensual: 4200, clientes: 980 },
   { id: 5, nombre: 'Hogar y Desechables', descripcion: 'Papel higiénico, servilletas, aluminio', precioBase: 35, unidad: 'unidad', volumenMensual: 7200, clientes: 1100 },
   { id: 6, nombre: 'Producto Industrial F', descripcion: 'Equipo industrial y maquinaria', precioBase: 25000.00, unidad: 'equipo', volumenMensual: 3, clientes: 5 },

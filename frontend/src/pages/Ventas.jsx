@@ -42,14 +42,14 @@ const ventasMensuales = [
 ]
 
 const ventasPorLinea = [
-  { id: 1, nombre: 'Alimentos Básicos', categoria: 'Alimentos', ventas: 1062500, meta: 1000000, margen: 45, unidades: 8500, tendencia: 'up' },
-  { id: 2, nombre: 'Bebidas y Refrescos', categoria: 'Bebidas', ventas: 775000, meta: 800000, margen: 42, unidades: 6200, tendencia: 'stable' },
-  { id: 3, nombre: 'Limpieza y Aseo', categoria: 'Limpieza', ventas: 292500, meta: 280000, margen: 52, unidades: 650, tendencia: 'up' },
-  { id: 4, nombre: 'Cuidado Personal', categoria: 'Cuidado Personal', ventas: 272000, meta: 300000, margen: 38, unidades: 3200, tendencia: 'down' },
-  { id: 5, nombre: 'Hogar y Desechables', categoria: 'Hogar', ventas: 168750, meta: 150000, margen: 48, unidades: 450, tendencia: 'up' },
-  { id: 6, nombre: 'Mascotas y Accesorios', categoria: 'Mascotas', ventas: 180000, meta: 200000, margen: 28, unidades: 1200, tendencia: 'stable' },
-  { id: 7, nombre: 'Lácteos y Derivados', categoria: 'Alimentos', ventas: 162000, meta: 160000, margen: 40, unidades: 1800, tendencia: 'up' },
-  { id: 8, nombre: 'Snacks y Confitería', categoria: 'Alimentos', ventas: 189000, meta: 180000, margen: 35, unidades: 4200, tendencia: 'down' },
+  { id: 1, nombre: 'Zapatos Deportivos', categoria: 'Zapatos', ventas: 1062500, meta: 1000000, margen: 45, unidades: 8500, tendencia: 'up' },
+  { id: 2, nombre: 'Camisetas y Polos', categoria: 'Camisetas', ventas: 775000, meta: 800000, margen: 42, unidades: 6200, tendencia: 'stable' },
+  { id: 3, nombre: 'Jeans y Denim', categoria: 'Jeans', ventas: 292500, meta: 280000, margen: 52, unidades: 650, tendencia: 'up' },
+  { id: 4, nombre: 'Chamarras y Blazers', categoria: 'Chamarras y Blazers', ventas: 272000, meta: 300000, margen: 38, unidades: 3200, tendencia: 'down' },
+  { id: 5, nombre: 'Vestidos y Faldas', categoria: 'Vestidos', ventas: 168750, meta: 150000, margen: 48, unidades: 450, tendencia: 'up' },
+  { id: 6, nombre: 'Pantalones y Shorts', categoria: 'Pantalones', ventas: 180000, meta: 200000, margen: 28, unidades: 1200, tendencia: 'stable' },
+  { id: 7, nombre: 'Sudaderas y Hoodies', categoria: 'Zapatos', ventas: 162000, meta: 160000, margen: 40, unidades: 1800, tendencia: 'up' },
+  { id: 8, nombre: 'Ropa Interior', categoria: 'Zapatos', ventas: 189000, meta: 180000, margen: 35, unidades: 4200, tendencia: 'down' },
 ]
 
 const vendedores = [
@@ -91,14 +91,14 @@ const vendedores = [
 ]
 
 const clientesTop = [
-  { id: 1, nombre: 'Cervecería Centroamericana', sector: 'Bebidas', compras: 1850000, transacciones: 45, ticketPromedio: 41111, vendedor: 'Vendedor 1', tendencia: 'up' },
-  { id: 2, nombre: 'Coca-Cola FEMSA Guatemala', sector: 'Bebidas', compras: 1420000, transacciones: 38, ticketPromedio: 37368, vendedor: 'Vendedor 2', tendencia: 'up' },
-  { id: 3, nombre: 'Unilever Centroamérica', sector: 'Limpieza', compras: 980000, transacciones: 28, ticketPromedio: 35000, vendedor: 'Sofía Reyes', tendencia: 'stable' },
-  { id: 4, nombre: 'P&G Guatemala', sector: 'Cuidado Personal', compras: 720000, transacciones: 52, ticketPromedio: 13846, vendedor: 'Diana Flores', tendencia: 'up' },
-  { id: 5, nombre: 'Nestlé Guatemala', sector: 'Alimentos', compras: 450000, transacciones: 85, ticketPromedio: 5294, vendedor: 'Jorge Castañeda', tendencia: 'up' },
-  { id: 6, nombre: 'Lácteos del Sur', sector: 'Alimentos', compras: 380000, transacciones: 18, ticketPromedio: 21111, vendedor: 'Vendedor 1', tendencia: 'stable' },
-  { id: 7, nombre: 'Kimberly-Clark México', sector: 'Hogar', compras: 290000, transacciones: 42, ticketPromedio: 6905, vendedor: 'Vendedor 2', tendencia: 'down' },
-  { id: 8, nombre: 'Helados Sarita', sector: 'Logística', compras: 195000, transacciones: 25, ticketPromedio: 7800, vendedor: 'Sofía Reyes', tendencia: 'up' },
+  { id: 1, nombre: 'Nike Centroamérica', sector: 'Camisetas', compras: 1850000, transacciones: 45, ticketPromedio: 41111, vendedor: 'Vendedor 1', tendencia: 'up' },
+  { id: 2, nombre: 'Adidas LATAM', sector: 'Camisetas', compras: 1420000, transacciones: 38, ticketPromedio: 37368, vendedor: 'Vendedor 2', tendencia: 'up' },
+  { id: 3, nombre: 'Zara Guatemala', sector: 'Jeans', compras: 980000, transacciones: 28, ticketPromedio: 35000, vendedor: 'Sofía Reyes', tendencia: 'stable' },
+  { id: 4, nombre: 'Levi Strauss CA', sector: 'Chamarras y Blazers', compras: 720000, transacciones: 52, ticketPromedio: 13846, vendedor: 'Diana Flores', tendencia: 'up' },
+  { id: 5, nombre: 'Calvin Klein CA', sector: 'Zapatos', compras: 450000, transacciones: 85, ticketPromedio: 5294, vendedor: 'Jorge Castañeda', tendencia: 'up' },
+  { id: 6, nombre: 'Puma Sports CA', sector: 'Zapatos', compras: 380000, transacciones: 18, ticketPromedio: 21111, vendedor: 'Vendedor 1', tendencia: 'stable' },
+  { id: 7, nombre: 'Tommy Hilfiger CA', sector: 'Vestidos', compras: 290000, transacciones: 42, ticketPromedio: 6905, vendedor: 'Vendedor 2', tendencia: 'down' },
+  { id: 8, nombre: 'Under Armour CA', sector: 'Ropa Interior', compras: 195000, transacciones: 25, ticketPromedio: 7800, vendedor: 'Sofía Reyes', tendencia: 'up' },
 ]
 
 const pipelineVentas = [
@@ -109,9 +109,9 @@ const pipelineVentas = [
 ]
 
 const insightsVentas = [
-  { tipo: 'oportunidad', titulo: 'Cervecería Centroamericana +18% vs mes anterior', descripcion: 'El cliente más grande está creciendo. Propuesta: contrato anual con descuento escalonado por volumen.', icono: 'trophy' },
+  { tipo: 'oportunidad', titulo: 'Nike Centroamérica +18% vs mes anterior', descripcion: 'El cliente más grande está creciendo. Propuesta: contrato anual con descuento escalonado por volumen.', icono: 'trophy' },
   { tipo: 'alerta', titulo: 'Jorge Castañeda 10% bajo meta YTD', descripcion: 'Desempeño descendente 3 meses consecutivos. Evaluar coaching o redistribución de cartera.', icono: 'warning' },
-  { tipo: 'insight', titulo: 'Línea Farmacéutica tiene el mejor margen (48%)', descripcion: 'Blíster y Tapas generan 48% y 40% de margen. Priorizar leads en sector farmacéutico.', icono: 'lightbulb' },
+  { tipo: 'insight', titulo: 'Línea Deportiva tiene el mejor margen (48%)', descripcion: 'Blíster y Tapas generan 48% y 40% de margen. Priorizar leads en sector farmacéutico.', icono: 'lightbulb' },
   { tipo: 'alerta', titulo: 'Polietileno Soplado 9% bajo meta', descripcion: 'Ventas bajaron Q28K vs meta. Competencia de precios reportada por Jorge Castañeda.', icono: 'warning' },
 ]
 
@@ -643,11 +643,11 @@ export default function Ventas() {
             >
               <option value="todas">Todas las categorías</option>
               <option value="Alimentaria">Alimentaria</option>
-              <option value="Bebidas">Bebidas</option>
+              <option value="Camisetas">Camisetas</option>
               <option value="Química">Química</option>
-              <option value="Farmacéutica">Farmacéutica</option>
-              <option value="Logística">Logística</option>
-              <option value="Mascotas">Mascotas</option>
+              <option value="Deportiva">Deportiva</option>
+              <option value="Ropa Interior">Ropa Interior</option>
+              <option value="Pantalones">Pantalones</option>
             </select>
           </div>
 
