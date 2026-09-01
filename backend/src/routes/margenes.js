@@ -47,103 +47,17 @@ const demoLineas = [
   { id: 'Mascotas', nombre: 'Mascotas', ventas_12m: 245000, margen_pct_actual: 29.2, margen_pct_historico: 29.0, delta_puntos: 0.2, quetzales_perdidos: 1040, semaforo: 'ambar', unidades_12m: 1200, num_skus: 2, num_ventas: 1200 },
 ];
 
-// Helper para verificar si una tabla existe
-async function tableExists(db, tableName) {
-  try {
-    const result = await db.getAsync(`
-      SELECT EXISTS (
-        SELECT FROM information_schema.tables 
-        WHERE table_schema = 'public' AND table_name = ?
-      ) as exists
-    `, [tableName]);
-    return result && result.exists;
-  } catch {
-    return false;
-  }
-}
-
-// Helper para verificar si una view existe
-async function viewExists(db, viewName) {
-  try {
-    const result = await db.getAsync(`
-      SELECT EXISTS (
-        SELECT FROM information_schema.views 
-        WHERE table_schema = 'public' AND table_name = ?
-      ) as exists
-    `, [viewName]);
-    return result && result.exists;
-  } catch {
-    return false;
-  }
-}
-
 /**
  * GET /api/margenes
- * Obtiene el análisis completo de márgenes: producto, vendedor, cliente, línea
+ * Demo retail - devuelve datos demo siempre
  */
 router.get('/', async (req, res) => {
   try {
-    const db = req.app.get('db');
-    const empresaId = req.query.empresa_id || 1;
+    const productos = demoProductos;
+    const vendedores = demoVendedores;
+    const clientes = demoClientes;
+    const lineas = demoLineas;
 
-    // Verificar si las views existen - si no, usar datos demo
-    const hasProductosView = await viewExists(db, 'vw_margen_productos');
-    const hasVendedorView = await viewExists(db, 'vw_margen_vendedor');
-    const hasClienteView = await viewExists(db, 'vw_margen_cliente');
-    const hasLineaView = await viewExists(db, 'vw_margen_linea');
-
-    let productos, vendedores, clientes, lineas;
-
-    if (hasProductosView) {
-      productos = await db.allAsync(`
-        SELECT 
-          id, sku, nombre, categoria,
-          ROUND(precio_actual::numeric, 2) as precio_actual,
-          ROUND(costo_actual::numeric, 2) as costo_actual,
-          ROUND(margen_pct_actual::numeric, 2) as margen_pct_actual,
-          ROUND(margen_pct_historico::numeric, 2) as margen_pct_historico,
-          ROUND(delta_puntos::numeric, 2) as delta_puntos,
-          unidades_12m, semaforo,
-          ROUND(quetzales_perdidos::numeric, 2) as quetzales_perdidos,
-          ROUND(precio_sugerido::numeric, 2) as precio_sugerido
-        FROM vw_margen_productos
-        WHERE id IN (SELECT id FROM productos WHERE empresa_id = ? AND activo = TRUE)
-        ORDER BY ABS(delta_puntos) DESC
-      `, [empresaId]);
-    } else {
-      productos = demoProductos;
-    }
-
-    if (hasVendedorView) {
-      vendedores = await db.allAsync(`
-        SELECT * FROM vw_margen_vendedor
-        WHERE total_ventas_q IS NOT NULL
-        ORDER BY total_ventas_q DESC
-      `);
-    } else {
-      vendedores = demoVendedores;
-    }
-
-    if (hasClienteView) {
-      clientes = await db.allAsync(`
-        SELECT * FROM vw_margen_cliente
-        ORDER BY total_comprado_q DESC
-        LIMIT 50
-      `);
-    } else {
-      clientes = demoClientes;
-    }
-
-    if (hasLineaView) {
-      lineas = await db.allAsync(`
-        SELECT * FROM vw_margen_linea
-        ORDER BY total_ventas_q DESC
-      `);
-    } else {
-      lineas = demoLineas;
-    }
-
-    // 5. Totales
     const totalMargenPerdido = productos.reduce((sum, p) => sum + (parseFloat(p.quetzales_perdidos) || 0), 0);
     const totalVentas = vendedores.reduce((sum, v) => sum + (parseFloat(v.ventas_12m) || 0), 0);
     const totalMargen = vendedores.reduce((sum, v) => sum + ((parseFloat(v.ventas_12m) || 0) * (parseFloat(v.margen_pct_actual) || 0) / 100), 0);
@@ -179,63 +93,40 @@ router.get('/', async (req, res) => {
  */
 router.get('/producto/:id/detalle', async (req, res) => {
   try {
-    const db = req.app.get('db');
     const productoId = parseInt(req.params.id);
-
-    // Buscar en datos demo primero
     const productoDemo = demoProductos.find(p => p.id === productoId);
-    if (productoDemo) {
-      // Generar historial demo para el producto
-      const historial = [];
-      const basePrecio = productoDemo.precio_actual;
-      const baseCosto = productoDemo.costo_actual;
-      for (let i = 11; i >= 0; i--) {
-        const fecha = new Date();
-        fecha.setMonth(fecha.getMonth() - i);
-        const variacionPrecio = (Math.random() - 0.5) * 0.1;
-        const variacionCosto = (Math.random() - 0.5) * 0.08;
-        const precio = basePrecio * (1 + variacionPrecio);
-        const costo = baseCosto * (1 + variacionCosto);
-        const margenPct = ((precio - costo) / precio * 100);
-        historial.push({
-          fecha: fecha.toISOString().split('T')[0],
-          precio_promedio_realizado: Math.round(precio * 100) / 100,
-          costo_unitario: Math.round(costo * 100) / 100,
-          unidades_vendidas: Math.floor(500 + Math.random() * 800),
-          margen_pct: Math.round(margenPct * 100) / 100
-        });
-      }
+    
+    if (!productoDemo) {
+      return res.status(404).json({ status: 'error', message: 'Producto no encontrado' });
+    }
 
-      return res.json({
-        status: 'success',
-        data: {
-          producto: { ...productoDemo, margen_promedio: productoDemo.margen_pct_actual },
-          historial
-        }
+    const historial = [];
+    const basePrecio = productoDemo.precio_actual;
+    const baseCosto = productoDemo.costo_actual;
+    for (let i = 11; i >= 0; i--) {
+      const fecha = new Date();
+      fecha.setMonth(fecha.getMonth() - i);
+      const variacionPrecio = (Math.random() - 0.5) * 0.1;
+      const variacionCosto = (Math.random() - 0.5) * 0.08;
+      const precio = basePrecio * (1 + variacionPrecio);
+      const costo = baseCosto * (1 + variacionCosto);
+      const margenPct = ((precio - costo) / precio * 100);
+      historial.push({
+        fecha: fecha.toISOString().split('T')[0],
+        precio_promedio_realizado: Math.round(precio * 100) / 100,
+        costo_unitario: Math.round(costo * 100) / 100,
+        unidades_vendidas: Math.floor(500 + Math.random() * 800),
+        margen_pct: Math.round(margenPct * 100) / 100
       });
     }
 
-    // Fallback a BD si existe
-    const producto = await db.getAsync(`
-      SELECT p.*, 
-        ROUND(AVG((ph.precio_promedio_realizado - ph.costo_unitario) / NULLIF(ph.precio_promedio_realizado, 0) * 100)::numeric, 2) as margen_promedio
-      FROM productos p
-      LEFT JOIN productos_historial ph ON p.id = ph.producto_id
-      WHERE p.id = ?
-      GROUP BY p.id
-    `, [productoId]);
-
-    if (!producto) return res.status(404).json({ status: 'error', message: 'Producto no encontrado' });
-
-    const historial = await db.allAsync(`
-      SELECT fecha, precio_promedio_realizado, costo_unitario, unidades_vendidas,
-        ROUND(((precio_promedio_realizado - costo_unitario) / NULLIF(precio_promedio_realizado, 0) * 100)::numeric, 2) as margen_pct
-      FROM productos_historial
-      WHERE producto_id = ?
-      ORDER BY fecha ASC
-    `, [productoId]);
-
-    res.json({ status: 'success', data: { producto, historial } });
+    res.json({
+      status: 'success',
+      data: {
+        producto: { ...productoDemo, margen_promedio: productoDemo.margen_pct_actual },
+        historial
+      }
+    });
   } catch (error) {
     res.status(500).json({ status: 'error', message: error.message });
   }
@@ -245,149 +136,21 @@ router.get('/producto/:id/detalle', async (req, res) => {
 // MARGEN POR VENDEDOR / SUCURSAL
 // ============================================
 router.get('/vendedores', async (req, res) => {
-  try {
-    const db = req.app.get('db');
-    const hasTable = await tableExists(db, 'vendedores');
-
-    if (!hasTable) {
-      return res.json({ status: 'success', data: demoVendedores });
-    }
-
-    const result = await db.allAsync(`
-      SELECT 
-        v.id,
-        v.nombre,
-        COALESCE(SUM(vd.total_venta), 0) as ventas_12m,
-        COALESCE(SUM(vd.margen_q), 0) as margen_bruto_q,
-        ROUND((COALESCE(SUM(vd.margen_q), 0) / NULLIF(SUM(vd.total_venta), 0) * 100)::numeric, 2) as margen_pct_actual,
-        COUNT(DISTINCT vd.id) as num_ventas,
-        SUM(vd.cantidad) as unidades_vendidas
-      FROM vendedores v
-      LEFT JOIN ventas_detalle vd ON v.id = vd.vendedor_id
-      WHERE v.activo = TRUE
-      GROUP BY v.id, v.nombre
-      ORDER BY ventas_12m DESC
-    `);
-    
-    const mapped = result.map(v => ({
-      id: v.id,
-      nombre: v.nombre,
-      ventas_12m: parseFloat(v.ventas_12m) || 0,
-      margen_pct_actual: parseFloat(v.margen_pct_actual) || 0,
-      margen_pct_historico: 0,
-      delta_puntos: 0,
-      quetzales_perdidos: 0,
-      semaforo: (parseFloat(v.margen_pct_actual) || 0) < 25 ? 'rojo' : (parseFloat(v.margen_pct_actual) || 0) < 35 ? 'ambar' : 'verde',
-      unidades_vendidas: parseInt(v.unidades_vendidas) || 0,
-      num_ventas: parseInt(v.num_ventas) || 0
-    }));
-    
-    res.json({ status: 'success', data: mapped });
-  } catch (error) {
-    console.error('[GET /api/margenes/vendedores] Error:', error);
-    res.json({ status: 'success', data: demoVendedores });
-  }
+  res.json({ status: 'success', data: demoVendedores });
 });
 
 // ============================================
 // MARGEN POR CLIENTE
 // ============================================
 router.get('/clientes', async (req, res) => {
-  try {
-    const db = req.app.get('db');
-    const hasTable = await tableExists(db, 'ventas_detalle');
-
-    if (!hasTable) {
-      return res.json({ status: 'success', data: demoClientes });
-    }
-
-    const result = await db.allAsync(`
-      SELECT 
-        vd.cliente_nombre as nombre,
-        COUNT(DISTINCT vd.id) as num_compras,
-        SUM(vd.cantidad) as unidades_compradas,
-        SUM(vd.total_venta) as ventas_12m,
-        SUM(vd.total_costo) as total_costo_q,
-        SUM(vd.margen_q) as margen_generado_q,
-        ROUND((SUM(vd.margen_q) / NULLIF(SUM(vd.total_venta), 0) * 100)::numeric, 2) as margen_pct_actual,
-        MIN(vd.fecha) as primera_compra,
-        MAX(vd.fecha) as ultima_compra
-      FROM ventas_detalle vd
-      GROUP BY vd.cliente_nombre
-      ORDER BY ventas_12m DESC
-      LIMIT 50
-    `);
-    
-    const mapped = result.map(c => ({
-      id: c.nombre,
-      nombre: c.nombre,
-      ventas_12m: parseFloat(c.ventas_12m) || 0,
-      margen_pct_actual: parseFloat(c.margen_pct_actual) || 0,
-      margen_pct_historico: 0,
-      delta_puntos: 0,
-      quetzales_perdidos: 0,
-      semaforo: (parseFloat(c.margen_pct_actual) || 0) < 25 ? 'rojo' : (parseFloat(c.margen_pct_actual) || 0) < 35 ? 'ambar' : 'verde',
-      unidades_compradas: parseInt(c.unidades_compradas) || 0,
-      num_compras: parseInt(c.num_compras) || 0,
-      primera_compra: c.primera_compra,
-      ultima_compra: c.ultima_compra
-    }));
-    
-    res.json({ status: 'success', data: mapped });
-  } catch (error) {
-    console.error('[GET /api/margenes/clientes] Error:', error);
-    res.json({ status: 'success', data: demoClientes });
-  }
+  res.json({ status: 'success', data: demoClientes });
 });
 
 // ============================================
 // MARGEN POR LÍNEA / CATEGORÍA
 // ============================================
 router.get('/lineas', async (req, res) => {
-  try {
-    const db = req.app.get('db');
-    const hasTable = await tableExists(db, 'productos');
-
-    if (!hasTable) {
-      return res.json({ status: 'success', data: demoLineas });
-    }
-
-    const result = await db.allAsync(`
-      SELECT 
-        p.categoria as nombre,
-        COUNT(DISTINCT p.id) as num_skus,
-        COUNT(DISTINCT vd.id) as num_ventas,
-        SUM(vd.cantidad) as unidades_12m,
-        SUM(vd.total_venta) as ventas_12m,
-        SUM(vd.total_costo) as total_costos_q,
-        SUM(vd.margen_q) as margen_bruto_q,
-        ROUND((SUM(vd.margen_q) / NULLIF(SUM(vd.total_venta), 0) * 100)::numeric, 2) as margen_pct_actual
-      FROM productos p
-      LEFT JOIN ventas_detalle vd ON p.id = vd.producto_id
-      WHERE p.activo = TRUE
-      GROUP BY p.categoria
-      ORDER BY ventas_12m DESC
-    `);
-    
-    const mapped = result.map(l => ({
-      id: l.nombre,
-      nombre: l.nombre,
-      ventas_12m: parseFloat(l.ventas_12m) || 0,
-      margen_pct_actual: parseFloat(l.margen_pct_actual) || 0,
-      margen_pct_historico: 0,
-      delta_puntos: 0,
-      quetzales_perdidos: 0,
-      semaforo: (parseFloat(l.margen_pct_actual) || 0) < 25 ? 'rojo' : (parseFloat(l.margen_pct_actual) || 0) < 35 ? 'ambar' : 'verde',
-      unidades_12m: parseInt(l.unidades_12m) || 0,
-      num_skus: parseInt(l.num_skus) || 0,
-      num_ventas: parseInt(l.num_ventas) || 0
-    }));
-    
-    res.json({ status: 'success', data: mapped });
-  } catch (error) {
-    console.error('[GET /api/margenes/lineas] Error:', error);
-    res.json({ status: 'success', data: demoLineas });
-  }
+  res.json({ status: 'success', data: demoLineas });
 });
 
 module.exports = router;
