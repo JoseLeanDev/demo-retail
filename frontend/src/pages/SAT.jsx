@@ -70,7 +70,7 @@ const facturasEmitidas = [
   { id: 'F001-0001', fecha: '2026-04-01', cliente: 'Comercial XYZ', nit: '12345678-9', monto: 45000, iva: 5400, estado: 'valida', tipo: 'FC' },
   { id: 'F001-0002', fecha: '2026-04-03', cliente: 'Industrias ABC', nit: '98765432-1', monto: 125000, iva: 15000, estado: 'valida', tipo: 'FC' },
   { id: 'F001-0003', fecha: '2026-04-05', cliente: 'Servicios LMN', nit: 'INVALIDO', monto: 2800, iva: 336, estado: 'error_nit', tipo: 'FC' },
-  { id: 'F001-0004', fecha: '2026-04-08', cliente: 'Constructora QRS', nit: '45678901-2', monto: 89000, iva: 10680, estado: 'valida', tipo: 'FC' },
+  { id: 'F001-0004', fecha: '2026-04-08', cliente: 'Tiendas La Bodeguita', nit: '45678901-2', monto: 89000, iva: 10680, estado: 'valida', tipo: 'FC' },
   { id: 'F001-0005', fecha: '2026-04-10', cliente: 'Pequeño Contrib', nit: '11111111-1', monto: 3500, iva: 420, estado: 'advertencia_monto', tipo: 'FC' },
   { id: 'F001-0006', fecha: '2026-04-12', cliente: 'Exportadora UVW', nit: '22222222-2', monto: 180000, iva: 0, estado: 'valida', tipo: 'FPE' },
   { id: 'NC001-0001', fecha: '2026-04-15', cliente: 'Comercial XYZ', nit: '12345678-9', monto: -9000, iva: -1080, estado: 'valida', tipo: 'NC' },

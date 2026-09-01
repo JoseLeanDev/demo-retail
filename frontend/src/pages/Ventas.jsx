@@ -29,7 +29,7 @@ const formatGTQ = (value) => {
   return 'Q ' + value.toLocaleString('es-GT')
 }
 
-// ========== DATOS REALISTAS EMPRESA INDUSTRIAL ==========
+// ========== DATOS REALISTAS RETAIL ==========
 
 const ventasMensuales = [
   { mes: 'Ene', ventas: 4200000, meta: 4000000, costos: 2940000 },
@@ -42,14 +42,14 @@ const ventasMensuales = [
 ]
 
 const ventasPorLinea = [
-  { id: 1, nombre: 'Línea A - Productos Estándar', categoria: 'Alimentaria', ventas: 1062500, meta: 1000000, margen: 45, unidades: 8500, tendencia: 'up' },
-  { id: 2, nombre: 'Línea B - Envases Premium Bebidas', categoria: 'Bebidas', ventas: 775000, meta: 800000, margen: 42, unidades: 6200, tendencia: 'stable' },
-  { id: 3, nombre: 'Laminaciones PVC/Aluminio', categoria: 'Logística', ventas: 292500, meta: 280000, margen: 52, unidades: 650, tendencia: 'up' },
-  { id: 4, nombre: 'Polietileno Soplado', categoria: 'Química', ventas: 272000, meta: 300000, margen: 38, unidades: 3200, tendencia: 'down' },
-  { id: 5, nombre: 'Blíster Farmacéutico', categoria: 'Farmacéutica', ventas: 168750, meta: 150000, margen: 48, unidades: 450, tendencia: 'up' },
-  { id: 6, nombre: 'Industrial Termoformado', categoria: 'Industrial', ventas: 180000, meta: 200000, margen: 28, unidades: 1200, tendencia: 'stable' },
-  { id: 7, nombre: 'Tapas y Válvulas', categoria: 'Farmacéutica', ventas: 162000, meta: 160000, margen: 40, unidades: 1800, tendencia: 'up' },
-  { id: 8, nombre: 'Línea B - Envases Premium Alimentaria', categoria: 'Alimentaria', ventas: 189000, meta: 180000, margen: 35, unidades: 4200, tendencia: 'down' },
+  { id: 1, nombre: 'Alimentos Básicos', categoria: 'Alimentos', ventas: 1062500, meta: 1000000, margen: 45, unidades: 8500, tendencia: 'up' },
+  { id: 2, nombre: 'Bebidas y Refrescos', categoria: 'Bebidas', ventas: 775000, meta: 800000, margen: 42, unidades: 6200, tendencia: 'stable' },
+  { id: 3, nombre: 'Limpieza y Aseo', categoria: 'Limpieza', ventas: 292500, meta: 280000, margen: 52, unidades: 650, tendencia: 'up' },
+  { id: 4, nombre: 'Cuidado Personal', categoria: 'Cuidado Personal', ventas: 272000, meta: 300000, margen: 38, unidades: 3200, tendencia: 'down' },
+  { id: 5, nombre: 'Hogar y Desechables', categoria: 'Hogar', ventas: 168750, meta: 150000, margen: 48, unidades: 450, tendencia: 'up' },
+  { id: 6, nombre: 'Mascotas y Accesorios', categoria: 'Mascotas', ventas: 180000, meta: 200000, margen: 28, unidades: 1200, tendencia: 'stable' },
+  { id: 7, nombre: 'Lácteos y Derivados', categoria: 'Alimentos', ventas: 162000, meta: 160000, margen: 40, unidades: 1800, tendencia: 'up' },
+  { id: 8, nombre: 'Snacks y Confitería', categoria: 'Alimentos', ventas: 189000, meta: 180000, margen: 35, unidades: 4200, tendencia: 'down' },
 ]
 
 const vendedores = [
@@ -91,13 +91,13 @@ const vendedores = [
 ]
 
 const clientesTop = [
-  { id: 1, nombre: 'Cervecería Centroamericana', sector: 'Alimentaria', compras: 1850000, transacciones: 45, ticketPromedio: 41111, vendedor: 'Vendedor 1', tendencia: 'up' },
-  { id: 2, nombre: 'Cementos Progreso', sector: 'Alimentaria', compras: 1420000, transacciones: 38, ticketPromedio: 37368, vendedor: 'Vendedor 2', tendencia: 'up' },
-  { id: 3, nombre: 'Transportes Galgos', sector: 'Logística', compras: 980000, transacciones: 28, ticketPromedio: 35000, vendedor: 'Sofía Reyes', tendencia: 'stable' },
-  { id: 4, nombre: 'Genfar Guatemala', sector: 'Farmacéutica', compras: 720000, transacciones: 52, ticketPromedio: 13846, vendedor: 'Diana Flores', tendencia: 'up' },
-  { id: 5, nombre: 'Empresas Diana', sector: 'Química', compras: 450000, transacciones: 85, ticketPromedio: 5294, vendedor: 'Jorge Castañeda', tendencia: 'up' },
-  { id: 6, nombre: 'Lácteos del Sur', sector: 'Alimentaria', compras: 380000, transacciones: 18, ticketPromedio: 21111, vendedor: 'Vendedor 1', tendencia: 'stable' },
-  { id: 7, nombre: 'Agua Pura Vida', sector: 'Farmacéutica', compras: 290000, transacciones: 42, ticketPromedio: 6905, vendedor: 'Vendedor 2', tendencia: 'down' },
+  { id: 1, nombre: 'Cervecería Centroamericana', sector: 'Bebidas', compras: 1850000, transacciones: 45, ticketPromedio: 41111, vendedor: 'Vendedor 1', tendencia: 'up' },
+  { id: 2, nombre: 'Coca-Cola FEMSA Guatemala', sector: 'Bebidas', compras: 1420000, transacciones: 38, ticketPromedio: 37368, vendedor: 'Vendedor 2', tendencia: 'up' },
+  { id: 3, nombre: 'Unilever Centroamérica', sector: 'Limpieza', compras: 980000, transacciones: 28, ticketPromedio: 35000, vendedor: 'Sofía Reyes', tendencia: 'stable' },
+  { id: 4, nombre: 'P&G Guatemala', sector: 'Cuidado Personal', compras: 720000, transacciones: 52, ticketPromedio: 13846, vendedor: 'Diana Flores', tendencia: 'up' },
+  { id: 5, nombre: 'Nestlé Guatemala', sector: 'Alimentos', compras: 450000, transacciones: 85, ticketPromedio: 5294, vendedor: 'Jorge Castañeda', tendencia: 'up' },
+  { id: 6, nombre: 'Lácteos del Sur', sector: 'Alimentos', compras: 380000, transacciones: 18, ticketPromedio: 21111, vendedor: 'Vendedor 1', tendencia: 'stable' },
+  { id: 7, nombre: 'Kimberly-Clark México', sector: 'Hogar', compras: 290000, transacciones: 42, ticketPromedio: 6905, vendedor: 'Vendedor 2', tendencia: 'down' },
   { id: 8, nombre: 'Helados Sarita', sector: 'Logística', compras: 195000, transacciones: 25, ticketPromedio: 7800, vendedor: 'Sofía Reyes', tendencia: 'up' },
 ]
 
@@ -105,7 +105,7 @@ const pipelineVentas = [
   { etapa: 'Cotización', cantidad: 24, valor: 1850000, probabilidad: 35 },
   { etapa: 'Negociación', cantidad: 18, valor: 1420000, probabilidad: 60 },
   { etapa: 'Orden Confirmada', cantidad: 12, valor: 980000, probabilidad: 85 },
-  { etapa: 'En Producción', cantidad: 8, valor: 720000, probabilidad: 95 },
+  { etapa: 'En Surtido', cantidad: 8, valor: 720000, probabilidad: 95 },
 ]
 
 const insightsVentas = [
@@ -175,7 +175,7 @@ export default function Ventas() {
           </div>
           <div>
             <h1 className="text-2xl font-bold">Ventas</h1>
-            <p className="text-sm text-[var(--text-muted)]">Empresa Industrial, S.A. — Análisis completo de ventas y desempeño comercial</p>
+            <p className="text-sm text-[var(--text-muted)]">Supermercados Unidos, S.A. — Análisis completo de ventas y desempeño comercial</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
@@ -647,7 +647,7 @@ export default function Ventas() {
               <option value="Química">Química</option>
               <option value="Farmacéutica">Farmacéutica</option>
               <option value="Logística">Logística</option>
-              <option value="Industrial">Industrial</option>
+              <option value="Mascotas">Mascotas</option>
             </select>
           </div>
 

@@ -27,15 +27,15 @@ export default function CuentasPorPagar() {
   
   // Mock data extendido
   const todasLasCxP = [
-    { proveedor: 'Importaciones del Pacífico', nit: '1234567-8', monto: 345000, dias_restantes: 3, descuento_pronto_pago: true, factura: 'FAC-PROV-452', vencimiento: '2026-04-10', tipo: 'Importación', condicion: '2% a 7 días' },
-    { proveedor: 'Servicios Eléctricos S.A.', nit: '8765432-1', monto: 89000, dias_restantes: 5, descuento_pronto_pago: false, factura: 'FAC-PROV-453', vencimiento: '2026-04-12', tipo: 'Servicios', condicion: 'Neto 30' },
-    { proveedor: 'Papelera Nacional', nit: '5678901-2', monto: 45000, dias_restantes: 8, descuento_pronto_pago: true, factura: 'FAC-PROV-450', vencimiento: '2026-04-15', tipo: 'Insumos', condicion: '3% a 10 días' },
-    { proveedor: 'Tecnología Avanzada S.A.', nit: '1098765-4', monto: 275000, dias_restantes: 12, descuento_pronto_pago: false, factura: 'FAC-PROV-448', vencimiento: '2026-04-20', tipo: 'Equipos', condicion: 'Neto 30' },
+    { proveedor: 'Coca-Cola FEMSA Guatemala', nit: '1234567-8', monto: 345000, dias_restantes: 3, descuento_pronto_pago: true, factura: 'FAC-PROV-452', vencimiento: '2026-04-10', tipo: 'Bebidas', condicion: '2% a 7 días' },
+    { proveedor: 'Unilever Centroamérica', nit: '8765432-1', monto: 89000, dias_restantes: 5, descuento_pronto_pago: false, factura: 'FAC-PROV-453', vencimiento: '2026-04-12', tipo: 'Limpieza', condicion: 'Neto 30' },
+    { proveedor: 'P&G Guatemala', nit: '5678901-2', monto: 45000, dias_restantes: 8, descuento_pronto_pago: true, factura: 'FAC-PROV-450', vencimiento: '2026-04-15', tipo: 'Cuidado Personal', condicion: '3% a 10 días' },
+    { proveedor: 'Nestlé Guatemala', nit: '1098765-4', monto: 275000, dias_restantes: 12, descuento_pronto_pago: false, factura: 'FAC-PROV-448', vencimiento: '2026-04-20', tipo: 'Alimentos', condicion: 'Neto 30' },
     { proveedor: 'Transporte Rápido', nit: '3456789-0', monto: 28000, dias_restantes: 15, descuento_pronto_pago: false, factura: 'FAC-PROV-455', vencimiento: '2026-04-23', tipo: 'Logística', condicion: 'Neto 15' },
-    { proveedor: 'Químicos Industriales', nit: '6543210-9', monto: 156000, dias_restantes: 18, descuento_pronto_pago: true, factura: 'FAC-PROV-445', vencimiento: '2026-04-25', tipo: 'Materia Prima', condicion: '5% a 15 días' },
+    { proveedor: 'Kimberly-Clark México', nit: '6543210-9', monto: 156000, dias_restantes: 18, descuento_pronto_pago: true, factura: 'FAC-PROV-445', vencimiento: '2026-04-25', tipo: 'Hogar', condicion: '5% a 15 días' },
     { proveedor: 'Seguridad Corporativa', nit: '7890123-4', monto: 45000, dias_restantes: 22, descuento_pronto_pago: false, factura: 'FAC-PROV-460', vencimiento: '2026-04-30', tipo: 'Servicios', condicion: 'Neto 30' },
     { proveedor: 'Marketing Digital Pro', nit: '4567890-1', monto: 72000, dias_restantes: 25, descuento_pronto_pago: false, factura: 'FAC-PROV-462', vencimiento: '2026-05-02', tipo: 'Marketing', condicion: 'Neto 30' },
-    { proveedor: 'Mantenimiento Industrial', nit: '2345678-9', monto: 125000, dias_restantes: 28, descuento_pronto_pago: false, factura: 'FAC-PROV-440', vencimiento: '2026-05-05', tipo: 'Servicios', condicion: 'Neto 30' },
+    { proveedor: 'Mantenimiento Locales', nit: '2345678-9', monto: 125000, dias_restantes: 28, descuento_pronto_pago: false, factura: 'FAC-PROV-440', vencimiento: '2026-05-05', tipo: 'Servicios', condicion: 'Neto 30' },
     { proveedor: 'Consultoría Estratégica', nit: '8901234-5', monto: 180000, dias_restantes: 35, descuento_pronto_pago: false, factura: 'FAC-PROV-435', vencimiento: '2026-05-15', tipo: 'Consultoría', condicion: 'Neto 45' },
   ]
 

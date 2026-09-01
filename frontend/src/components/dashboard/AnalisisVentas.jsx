@@ -22,14 +22,14 @@ const formatGTQ = (value) => {
 
 // Datos de ejemplo - En producción vendrían del API
 const productosData = [
-  { id: 1, nombre: 'Cable THW 12 AWG (Rollo 100m)', categoria: 'Eléctrico', unidadesVendidas: 2450, ingresos: 882000, margen: 32, tendencia: 'up', stock: 'ok' },
-  { id: 2, nombre: 'Tubo PVC 1/2" (Caja 20 unds)', categoria: 'Plomería', unidadesVendidas: 1890, ingresos: 567000, margen: 28, tendencia: 'up', stock: 'bajo' },
-  { id: 3, nombre: 'Interruptor Breaker 2P 30A', categoria: 'Eléctrico', unidadesVendidas: 1240, ingresos: 496000, margen: 35, tendencia: 'down', stock: 'ok' },
-  { id: 4, nombre: 'Pintura Latex Blanca 1 Galón', categoria: 'Pinturas', unidadesVendidas: 1100, ingresos: 385000, margen: 25, tendencia: 'up', stock: 'ok' },
-  { id: 5, nombre: 'Cemento Portland 42.5kg', categoria: 'Construcción', unidadesVendidas: 980, ingresos: 441000, margen: 18, tendencia: 'down', stock: 'crítico' },
-  { id: 6, nombre: 'Lámina Galvanizada 3x8 pies', categoria: 'Construcción', unidadesVendidas: 750, ingresos: 375000, margen: 22, tendencia: 'up', stock: 'ok' },
-  { id: 7, nombre: 'Foco LED 9W (Caja 10 unds)', categoria: 'Eléctrico', unidadesVendidas: 680, ingresos: 204000, margen: 40, tendencia: 'up', stock: 'ok' },
-  { id: 8, nombre: 'Llave de Paso 1/2"', categoria: 'Plomería', unidadesVendidas: 620, ingresos: 186000, margen: 30, tendencia: 'stable', stock: 'ok' },
+  { id: 1, nombre: 'Arroz 5lb (Saco)', categoria: 'Alimentos', unidadesVendidas: 2450, ingresos: 882000, margen: 32, tendencia: 'up', stock: 'ok' },
+  { id: 2, nombre: 'Coca-Cola 2L (8 unds)', categoria: 'Bebidas', unidadesVendidas: 1890, ingresos: 567000, margen: 28, tendencia: 'up', stock: 'bajo' },
+  { id: 3, nombre: 'Aceite Vegetal 1L (12 unds)', categoria: 'Alimentos', unidadesVendidas: 1240, ingresos: 496000, margen: 35, tendencia: 'down', stock: 'ok' },
+  { id: 4, nombre: 'Detergente Líquido 3L', categoria: 'Limpieza', unidadesVendidas: 1100, ingresos: 385000, margen: 25, tendencia: 'up', stock: 'ok' },
+  { id: 5, nombre: 'Shampoo Head & Shoulders 400ml', categoria: 'Cuidado Personal', unidadesVendidas: 980, ingresos: 441000, margen: 18, tendencia: 'down', stock: 'crítico' },
+  { id: 6, nombre: 'Papel Higiénico 12 rollos', categoria: 'Hogar', unidadesVendidas: 750, ingresos: 375000, margen: 22, tendencia: 'up', stock: 'ok' },
+  { id: 7, nombre: 'Croquetas Dog Chow 8kg', categoria: 'Mascotas', unidadesVendidas: 680, ingresos: 204000, margen: 40, tendencia: 'up', stock: 'ok' },
+  { id: 8, nombre: 'Jabón de Baño 120g (6 unds)', categoria: 'Cuidado Personal', unidadesVendidas: 620, ingresos: 186000, margen: 30, tendencia: 'stable', stock: 'ok' },
 ]
 
 const tiendasData = [
@@ -41,26 +41,26 @@ const tiendasData = [
 ]
 
 const clientesData = [
-  { id: 1, nombre: 'Constructora Metropolitana', tipo: 'Empresarial', compras: 8500000, transacciones: 45, ticketPromedio: 188888, frecuencia: 'Semanal', tendencia: 'up' },
-  { id: 2, nombre: 'Grupo Industrial Centroamericano', tipo: 'Empresarial', compras: 6200000, transacciones: 38, ticketPromedio: 163157, frecuencia: 'Quincenal', tendencia: 'up' },
-  { id: 3, nombre: 'Inversiones del Norte', tipo: 'Empresarial', compras: 4100000, transacciones: 28, ticketPromedio: 146428, frecuencia: 'Mensual', tendencia: 'stable' },
-  { id: 4, nombre: 'Distribuidora del Sur', tipo: 'Distribuidor', compras: 2800000, transacciones: 52, ticketPromedio: 53846, frecuencia: 'Semanal', tendencia: 'down' },
-  { id: 5, nombre: 'Comercializadora Maya', tipo: 'Pyme', compras: 1900000, transacciones: 85, ticketPromedio: 22352, frecuencia: 'Semanal', tendencia: 'up' },
-  { id: 6, nombre: 'Importadora del Pacífico', tipo: 'Empresarial', compras: 1500000, transacciones: 18, ticketPromedio: 83333, frecuencia: 'Mensual', tendencia: 'stable' },
-  { id: 7, nombre: 'Ferretería La Unión', tipo: 'Pyme', compras: 1200000, transacciones: 120, ticketPromedio: 10000, frecuencia: '2x semana', tendencia: 'up' },
-  { id: 8, nombre: 'Suministros Industriales', tipo: 'Pyme', compras: 950000, transacciones: 42, ticketPromedio: 22619, frecuencia: 'Semanal', tendencia: 'down' },
+  { id: 1, nombre: 'Clientes Frecuentes App', tipo: 'Canal Digital', compras: 8500000, transacciones: 4500, ticketPromedio: 1888, frecuencia: 'Diaria', tendencia: 'up' },
+  { id: 2, nombre: 'Puntos de Venta Mayorista', tipo: 'Mayorista', compras: 6200000, transacciones: 380, ticketPromedio: 16315, frecuencia: 'Semanal', tendencia: 'up' },
+  { id: 3, nombre: 'Empresas Corporativas (B2B)', tipo: 'Empresarial', compras: 4100000, transacciones: 280, ticketPromedio: 14642, frecuencia: 'Mensual', tendencia: 'stable' },
+  { id: 4, nombre: 'Sucursal Centro', tipo: 'Sucursal', compras: 2800000, transacciones: 5200, ticketPromedio: 538, frecuencia: 'Diaria', tendencia: 'down' },
+  { id: 5, nombre: 'Tienda Online', tipo: 'Digital', compras: 1900000, transacciones: 850, ticketPromedio: 2235, frecuencia: 'Diaria', tendencia: 'up' },
+  { id: 6, nombre: 'Programa de Lealtad', tipo: 'Fidelización', compras: 1500000, transacciones: 1800, ticketPromedio: 833, frecuencia: 'Semanal', tendencia: 'stable' },
+  { id: 7, nombre: 'Sucursal Norte', tipo: 'Sucursal', compras: 1200000, transacciones: 2100, ticketPromedio: 571, frecuencia: 'Diaria', tendencia: 'up' },
+  { id: 8, nombre: 'Sucursal Sur', tipo: 'Sucursal', compras: 950000, transacciones: 1850, ticketPromedio: 513, frecuencia: 'Diaria', tendencia: 'down' },
 ]
 
 const insightsData = [
   {
     tipo: 'oportunidad',
-    titulo: 'Cable THW lidera ventas con 32% margen',
+    titulo: 'Arroz 5lb lidera ventas con 32% margen',
     descripcion: 'El producto estrella genera Q882K mensuales. Considerar negociar volumen con proveedor para mejorar margen al 35%.',
     icono: TrophyIcon
   },
   {
     tipo: 'alerta',
-    titulo: 'Stock crítico en Cemento Portland',
+    titulo: 'Stock crítico en Shampoo Head & Shoulders',
     descripcion: 'Solo quedan 45 unidades. El producto tiene alta rotación (980/mes). Reordenar inmediatamente para evitar pérdida de ventas.',
     icono: CubeIcon
   },
@@ -72,8 +72,8 @@ const insightsData = [
   },
   {
     tipo: 'alerta',
-    titulo: 'Cliente "Distribuidora del Sur" en tendencia negativa',
-    descripcion: 'Compras bajaron 15% vs mes anterior. Contactar para evaluar satisfacción y ofrecer incentivos de volumen.',
+    titulo: 'Cliente "Sucursal Centro" en tendencia negativa',
+    descripcion: 'Ventas bajaron 15% vs mes anterior. Evaluar surtido y atención al cliente en esta ubicación.',
     icono: UsersIcon
   }
 ]

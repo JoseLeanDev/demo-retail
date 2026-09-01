@@ -38,17 +38,17 @@ const formatPct = (value) => {
 }
 
 // ============================================
-// DATOS DE DEMO - GASTOS OPERATIVOS EMPRESA INDUSTRIAL
+// DATOS DE DEMO - GASTOS OPERATIVOS RETAIL
 // ============================================
 
 const CATEGORIAS_GASTO = [
   {
     id: 'materias_primas',
-    nombre: 'Materias Primas',
+    nombre: 'Mercadería / Inventario',
     icono: BeakerIcon,
     color: '#3B82F6',
-    descripcion: 'Materias primas industriales, insumos de producción',
-    proveedorPrincipal: 'Proveedor Principal A',
+    descripcion: 'Compra de productos para venta, abastecimiento de estantes',
+    proveedorPrincipal: 'Coca-Cola FEMSA / Unilever',
     terminos: '2/10 n/30',
     frecuencia: 'semanal',
   },
@@ -57,7 +57,7 @@ const CATEGORIAS_GASTO = [
     nombre: 'Nómina y Salarios',
     icono: UsersIcon,
     color: '#10B981',
-    descripcion: 'Salarios operarios, técnicos de extrusión, administrativos, cargas sociales',
+    descripcion: 'Salarios cajeros, reponedores, gerentes de sucursal, cargas sociales',
     proveedorPrincipal: 'Nómina interna',
     terminos: 'quincenal',
     frecuencia: 'quincenal',
@@ -67,28 +67,28 @@ const CATEGORIAS_GASTO = [
     nombre: 'Servicios Públicos',
     icono: BoltIcon,
     color: '#F59E0B',
-    descripcion: 'Energía eléctrica (alta tensión), gas natural, agua industrial',
-    proveedorPrincipal: 'EEGSA / TECO',
+    descripcion: 'Energía eléctrica, agua, internet para 4 sucursales',
+    proveedorPrincipal: 'EEGSA / Tigo',
     terminos: 'n/15',
     frecuencia: 'mensual',
   },
   {
     id: 'mantenimiento',
-    nombre: 'Mantenimiento Equipos',
+    nombre: 'Mantenimiento Locales',
     icono: WrenchIcon,
     color: '#EF4444',
-    descripcion: 'Mantenimiento extrusoras, termoformadoras, impresoras flexográficas',
-    proveedorPrincipal: 'Proveedor de Servicios Técnicos',
+    descripcion: 'Mantenimiento equipos de refrigeración, aire acondicionado, cajas registradoras',
+    proveedorPrincipal: 'Servicios Técnicos Local',
     terminos: 'contado',
     frecuencia: 'mensual',
   },
   {
     id: 'alquiler',
-    nombre: 'Alquiler Instalaciones',
+    nombre: 'Alquiler Locales',
     icono: BuildingOfficeIcon,
     color: '#8B5CF6',
-    descripcion: 'Planta industrial Zona 3, bodega Zona 12, oficinas corporativas',
-    proveedorPrincipal: 'Arrendador Industrial',
+    descripcion: 'Locales comerciales Centro Comercial, Zona 1, Zona 10, Zona 12',
+    proveedorPrincipal: 'Inmobiliaria Comercial',
     terminos: 'n/5',
     frecuencia: 'mensual',
   },
@@ -97,7 +97,7 @@ const CATEGORIAS_GASTO = [
     nombre: 'Transporte y Logística',
     icono: TruckIcon,
     color: '#06B6D4',
-    descripcion: 'Entrega a clientes industriales, exportaciones, flete internacional',
+    descripcion: 'Entrega a sucursales, distribución interna, flete de proveedores',
     proveedorPrincipal: 'Transporte y Logística',
     terminos: 'n/15',
     frecuencia: 'semanal',
