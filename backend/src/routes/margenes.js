@@ -153,4 +153,9 @@ router.get('/lineas', async (req, res) => {
   res.json({ status: 'success', data: demoLineas });
 });
 
+// Debug endpoint to verify deployment
+router.get('/debug', async (req, res) => {
+  res.json({ status: 'ok', version: 'demo-v2', timestamp: new Date().toISOString() });
+});
+
 module.exports = router;
