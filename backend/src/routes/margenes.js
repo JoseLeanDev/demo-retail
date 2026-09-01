@@ -153,7 +153,7 @@ router.get('/lineas', async (req, res) => {
   res.json({ status: 'success', data: demoLineas });
 });
 
-// Debug endpoint to verify deployment
+// Debug endpoint to verify deployment - v3
 router.get('/debug', async (req, res) => {
   res.json({ status: 'ok', version: 'demo-v3', timestamp: new Date().toISOString() });
 });
