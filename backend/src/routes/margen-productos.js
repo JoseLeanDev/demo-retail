@@ -1,43 +1,60 @@
 const express = require('express');
 const router = express.Router();
 
+// ========== DATOS DEMO RETAIL PARA MÁRGENES ==========
+const demoProductos = [
+  { id: 1, sku: 'ALM-001', nombre: 'Arroz 5lb', categoria: 'Alimentos', precio_actual: 28.50, costo_actual: 23.37, margen_pct_actual: 18.0, margen_pct_historico: 22.5, delta_puntos: -4.5, unidades_12m: 9500, semaforo: 'rojo', quetzales_perdidos: 42750, precio_sugerido: 32.00 },
+  { id: 2, sku: 'ALM-002', nombre: 'Aceite Vegetal 1L', categoria: 'Alimentos', precio_actual: 22.00, costo_actual: 18.70, margen_pct_actual: 15.0, margen_pct_historico: 18.0, delta_puntos: -3.0, unidades_12m: 6600, semaforo: 'rojo', quetzales_perdidos: 21780, precio_sugerido: 25.50 },
+  { id: 3, sku: 'BEV-001', nombre: 'Coca-Cola 2L', categoria: 'Bebidas', precio_actual: 18.50, costo_actual: 12.58, margen_pct_actual: 32.0, margen_pct_historico: 28.0, delta_puntos: 4.0, unidades_12m: 5600, semaforo: 'verde', quetzales_perdidos: 0, precio_sugerido: 18.50 },
+  { id: 4, sku: 'BEV-002', nombre: 'Jugo Naranja 1L', categoria: 'Bebidas', precio_actual: 16.00, costo_actual: 11.20, margen_pct_actual: 30.0, margen_pct_historico: 32.0, delta_puntos: -2.0, unidades_12m: 3200, semaforo: 'ambar', quetzales_perdidos: 6400, precio_sugerido: 17.00 },
+  { id: 5, sku: 'LIM-001', nombre: 'Jabón en Barra', categoria: 'Limpieza', precio_actual: 12.00, costo_actual: 8.64, margen_pct_actual: 28.0, margen_pct_historico: 25.0, delta_puntos: 3.0, unidades_12m: 5400, semaforo: 'verde', quetzales_perdidos: 0, precio_sugerido: 12.00 },
+  { id: 6, sku: 'LIM-002', nombre: 'Detergente Líquido', categoria: 'Limpieza', precio_actual: 35.00, costo_actual: 24.50, margen_pct_actual: 30.0, margen_pct_historico: 28.0, delta_puntos: 2.0, unidades_12m: 2800, semaforo: 'verde', quetzales_perdidos: 0, precio_sugerido: 35.00 },
+  { id: 7, sku: 'CP-001', nombre: 'Shampoo 400ml', categoria: 'Cuidado Personal', precio_actual: 42.00, costo_actual: 23.10, margen_pct_actual: 45.0, margen_pct_historico: 40.0, delta_puntos: 5.0, unidades_12m: 1850, semaforo: 'verde', quetzales_perdidos: 0, precio_sugerido: 42.00 },
+  { id: 8, sku: 'CP-002', nombre: 'Pasta Dental', categoria: 'Cuidado Personal', precio_actual: 18.00, costo_actual: 10.80, margen_pct_actual: 40.0, margen_pct_historico: 38.0, delta_puntos: 2.0, unidades_12m: 2400, semaforo: 'verde', quetzales_perdidos: 0, precio_sugerido: 18.00 },
+  { id: 9, sku: 'HOG-001', nombre: 'Foco LED 9W', categoria: 'Hogar', precio_actual: 25.00, costo_actual: 15.50, margen_pct_actual: 38.0, margen_pct_historico: 42.0, delta_puntos: -4.0, unidades_12m: 1200, semaforo: 'ambar', quetzales_perdidos: 5400, precio_sugerido: 27.00 },
+  { id: 10, sku: 'HOG-002', nombre: 'Extensión Eléctrica', categoria: 'Hogar', precio_actual: 45.00, costo_actual: 29.25, margen_pct_actual: 35.0, margen_pct_historico: 35.0, delta_puntos: 0, unidades_12m: 850, semaforo: 'verde', quetzales_perdidos: 0, precio_sugerido: 45.00 },
+  { id: 11, sku: 'MAS-001', nombre: 'Croquetas Perro 2kg', categoria: 'Mascotas', precio_actual: 85.00, costo_actual: 57.80, margen_pct_actual: 32.0, margen_pct_historico: 30.0, delta_puntos: 2.0, unidades_12m: 680, semaforo: 'verde', quetzales_perdidos: 0, precio_sugerido: 85.00 },
+  { id: 12, sku: 'MAS-002', nombre: 'Arena Gato 4kg', categoria: 'Mascotas', precio_actual: 38.00, costo_actual: 28.12, margen_pct_actual: 26.0, margen_pct_historico: 28.0, delta_puntos: -2.0, unidades_12m: 520, semaforo: 'ambar', quetzales_perdidos: 1040, precio_sugerido: 40.00 },
+  { id: 13, sku: 'ALM-003', nombre: 'Frijol Negro 1kg', categoria: 'Alimentos', precio_actual: 18.00, costo_actual: 13.50, margen_pct_actual: 25.0, margen_pct_historico: 28.0, delta_puntos: -3.0, unidades_12m: 4200, semaforo: 'ambar', quetzales_perdidos: 5670, precio_sugerido: 20.00 },
+  { id: 14, sku: 'BEV-003', nombre: 'Agua Purificada 1L', categoria: 'Bebidas', precio_actual: 8.50, costo_actual: 5.95, margen_pct_actual: 30.0, margen_pct_historico: 32.0, delta_puntos: -2.0, unidades_12m: 7800, semaforo: 'ambar', quetzales_perdidos: 1950, precio_sugerido: 9.00 },
+  { id: 15, sku: 'CP-003', nombre: 'Desodorante Roll-on', categoria: 'Cuidado Personal', precio_actual: 28.00, costo_actual: 16.80, margen_pct_actual: 40.0, margen_pct_historico: 38.0, delta_puntos: 2.0, unidades_12m: 2100, semaforo: 'verde', quetzales_perdidos: 0, precio_sugerido: 28.00 },
+];
+
+function generateHistorial(basePrecio, baseCosto) {
+  const historial = [];
+  for (let i = 23; i >= 0; i--) {
+    const fecha = new Date();
+    fecha.setMonth(fecha.getMonth() - i);
+    const variacionPrecio = (Math.random() - 0.5) * 0.1;
+    const variacionCosto = (Math.random() - 0.5) * 0.08;
+    const precio = basePrecio * (1 + variacionPrecio);
+    const costo = baseCosto * (1 + variacionCosto);
+    const margenPct = ((precio - costo) / precio * 100);
+    historial.push({
+      fecha: fecha.toISOString().split('T')[0],
+      precio_promedio_realizado: Math.round(precio * 100) / 100,
+      costo_unitario: Math.round(costo * 100) / 100,
+      unidades_vendidas: Math.floor(500 + Math.random() * 800),
+      margen_pct: Math.round(margenPct * 100) / 100
+    });
+  }
+  return historial;
+}
+
 /**
  * GET /api/margen-productos
- * Obtiene el análisis de margen por producto con semáforo de erosión
+ * Demo retail - devuelve datos demo
  */
 router.get('/', async (req, res) => {
   try {
-    const db = req.app.get('db');
-    const empresaId = req.query.empresa_id || 1;
+    const productos = [...demoProductos].sort((a, b) => {
+      const semaforoOrder = { rojo: 1, ambar: 2, verde: 3 };
+      if (semaforoOrder[a.semaforo] !== semaforoOrder[b.semaforo]) {
+        return semaforoOrder[a.semaforo] - semaforoOrder[b.semaforo];
+      }
+      return Math.abs(b.delta_puntos) - Math.abs(a.delta_puntos);
+    });
     
-    // Obtener datos de la vista de margen
-    const productos = await db.allAsync(`
-      SELECT 
-        id,
-        sku,
-        nombre,
-        categoria,
-        precio_actual,
-        costo_actual,
-        ROUND(margen_pct_actual::numeric, 2) as margen_pct_actual,
-        ROUND(margen_pct_historico::numeric, 2) as margen_pct_historico,
-        ROUND(delta_puntos::numeric, 2) as delta_puntos,
-        unidades_12m,
-        semaforo,
-        ROUND(quetzales_perdidos::numeric, 2) as quetzales_perdidos,
-        ROUND(precio_sugerido::numeric, 2) as precio_sugerido
-      FROM vw_margen_productos
-      WHERE id IN (SELECT id FROM productos WHERE empresa_id = ? AND activo = TRUE)
-      ORDER BY 
-        CASE semaforo 
-          WHEN 'rojo' THEN 1 
-          WHEN 'ambar' THEN 2 
-          WHEN 'verde' THEN 3 
-        END,
-        ABS(delta_puntos) DESC
-    `, [empresaId]);
-    
-    // Calcular totales
     const totalMargenPerdido = productos.reduce((sum, p) => sum + (parseFloat(p.quetzales_perdidos) || 0), 0);
     const productosRojo = productos.filter(p => p.semaforo === 'rojo').length;
     const productosAmbar = productos.filter(p => p.semaforo === 'ambar').length;
@@ -69,45 +86,19 @@ router.get('/', async (req, res) => {
 
 /**
  * GET /api/margen-productos/:id/detalle
- * Obtiene el detalle histórico de un producto (24 meses)
  */
 router.get('/:id/detalle', async (req, res) => {
   try {
-    const db = req.app.get('db');
-    const productoId = req.params.id;
-    
-    // Obtener info del producto
-    const producto = await db.getAsync(`
-      SELECT p.*, 
-        ROUND(AVG((ph.precio_promedio_realizado - ph.costo_unitario) / NULLIF(ph.precio_promedio_realizado, 0) * 100)::numeric, 2) as margen_promedio
-      FROM productos p
-      LEFT JOIN productos_historial ph ON p.id = ph.producto_id
-      WHERE p.id = ?
-      GROUP BY p.id
-    `, [productoId]);
+    const productoId = parseInt(req.params.id);
+    const producto = demoProductos.find(p => p.id === productoId);
     
     if (!producto) {
       return res.status(404).json({ status: 'error', message: 'Producto no encontrado' });
     }
     
-    // Obtener historial de 24 meses
-    const historial = await db.allAsync(`
-      SELECT 
-        fecha,
-        precio_promedio_realizado,
-        costo_unitario,
-        unidades_vendidas,
-        ROUND(((precio_promedio_realizado - costo_unitario) / NULLIF(precio_promedio_realizado, 0) * 100)::numeric, 2) as margen_pct
-      FROM productos_historial
-      WHERE producto_id = ?
-      ORDER BY fecha ASC
-    `, [productoId]);
-    
-    // Calcular precio sugerido para recuperar margen histórico
-    const margenObjetivo = historial.length > 0 
-      ? ((historial[0].precio_promedio_realizado - historial[0].costo_unitario) / historial[0].precio_promedio_realizado * 100)
-      : 30;
-    const costoActual = historial.length > 0 ? historial[historial.length - 1].costo_unitario : 0;
+    const historial = generateHistorial(producto.precio_actual, producto.costo_actual);
+    const margenObjetivo = producto.margen_pct_historico;
+    const costoActual = producto.costo_actual;
     const precioSugerido = costoActual > 0 && margenObjetivo > 0 
       ? costoActual / (1 - (margenObjetivo / 100))
       : 0;
@@ -115,7 +106,7 @@ router.get('/:id/detalle', async (req, res) => {
     res.json({
       status: 'success',
       data: {
-        producto,
+        producto: { ...producto, margen_promedio: producto.margen_pct_actual },
         historial,
         precio_sugerido: Math.round(precioSugerido * 100) / 100,
         margen_objetivo: Math.round(margenObjetivo * 100) / 100
@@ -129,39 +120,19 @@ router.get('/:id/detalle', async (req, res) => {
 
 /**
  * GET /api/margen-productos/alertas
- * Obtiene alertas de erosión de margen (>3 puntos en 90 días)
  */
 router.get('/alertas', async (req, res) => {
   try {
-    const db = req.app.get('db');
-    const empresaId = req.query.empresa_id || 1;
-    
-    // Detectar productos con erosión > 3 puntos en los últimos 3 meses
-    const alertas = await db.allAsync(`
-      WITH margen_ultimos_meses AS (
-        SELECT 
-          ph.producto_id,
-          p.sku,
-          p.nombre,
-          AVG(CASE WHEN ph.fecha >= CURRENT_DATE - INTERVAL '3 months' THEN (ph.precio_promedio_realizado - ph.costo_unitario) / NULLIF(ph.precio_promedio_realizado, 0) * 100 END) as margen_ult_3m,
-          AVG(CASE WHEN ph.fecha >= CURRENT_DATE - INTERVAL '6 months' AND ph.fecha < CURRENT_DATE - INTERVAL '3 months' THEN (ph.precio_promedio_realizado - ph.costo_unitario) / NULLIF(ph.precio_promedio_realizado, 0) * 100 END) as margen_prev_3m
-        FROM productos_historial ph
-        JOIN productos p ON ph.producto_id = p.id
-        WHERE p.empresa_id = ? AND p.activo = TRUE
-        GROUP BY ph.producto_id, p.sku, p.nombre
-        HAVING COUNT(CASE WHEN ph.fecha >= CURRENT_DATE - INTERVAL '3 months' THEN 1 END) >= 2
-      )
-      SELECT 
-        producto_id,
-        sku,
-        nombre,
-        ROUND(margen_ult_3m::numeric, 2) as margen_actual,
-        ROUND(margen_prev_3m::numeric, 2) as margen_anterior,
-        ROUND((margen_ult_3m - margen_prev_3m)::numeric, 2) as delta_puntos
-      FROM margen_ultimos_meses
-      WHERE (margen_ult_3m - margen_prev_3m) < -3
-      ORDER BY (margen_ult_3m - margen_prev_3m) ASC
-    `, [empresaId]);
+    const alertas = demoProductos
+      .filter(p => p.delta_puntos < -3)
+      .map(p => ({
+        producto_id: p.id,
+        sku: p.sku,
+        nombre: p.nombre,
+        margen_actual: p.margen_pct_actual,
+        margen_anterior: p.margen_pct_historico,
+        delta_puntos: p.delta_puntos
+      }));
     
     res.json({
       status: 'success',
