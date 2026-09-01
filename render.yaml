@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: demo-retail-clone
+    env: node
+    buildCommand: echo skip
+    startCommand: node backend/src/index.js
+    plan: starter
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
