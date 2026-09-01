@@ -138,13 +138,13 @@ const HISTORIAL_GASTOS = {
 
 const MESES_HISTORIAL = ['Ene 2026', 'Feb 2026', 'Mar 2026', 'Abr 2026', 'May 2026', 'Jun 2026']
 
-// Productos ofrecidos por Empresa Industrial
+// Productos ofrecidos por Supermercados Unidos
 const SERVICIOS = [
-  { id: 1, nombre: 'Producto Industrial A', descripcion: 'Componentes industriales estándar', precioBase: 2.50, unidad: 'unidad', volumenMensual: 85000, clientes: 14 },
-  { id: 2, nombre: 'Producto Industrial B', descripcion: 'Envases y contenedores industriales', precioBase: 1.80, unidad: 'unidad', volumenMensual: 120000, clientes: 8 },
-  { id: 3, nombre: 'Producto Industrial C', descripcion: 'Materiales de seguridad industrial', precioBase: 0.45, unidad: 'unidad', volumenMensual: 650000, clientes: 25 },
-  { id: 4, nombre: 'Producto Industrial D', descripcion: 'Materiales laminados industriales', precioBase: 8.50, unidad: 'metro', volumenMensual: 32000, clientes: 12 },
-  { id: 5, nombre: 'Producto Industrial E', descripcion: 'Contenedores industriales soplados', precioBase: 4.20, unidad: 'unidad', volumenMensual: 42000, clientes: 6 },
+  { id: 1, nombre: 'Arroz y Granos Básicos', descripcion: 'Arroz, frijol, azúcar, aceite, harina', precioBase: 28, unidad: 'unidad', volumenMensual: 8500, clientes: 1400 },
+  { id: 2, nombre: 'Bebidas y Refrescos', descripcion: 'Coca-Cola, Pepsi, jugos, cervezas, agua', precioBase: 18, unidad: 'unidad', volumenMensual: 12000, clientes: 1800 },
+  { id: 3, nombre: 'Limpieza y Aseo', descripcion: 'Detergente, cloro, jabón, suavizante', precioBase: 45, unidad: 'unidad', volumenMensual: 6500, clientes: 1200 },
+  { id: 4, nombre: 'Cuidado Personal', descripcion: 'Shampoo, pasta dental, desodorante, jabón', precioBase: 52, unidad: 'unidad', volumenMensual: 4200, clientes: 980 },
+  { id: 5, nombre: 'Hogar y Desechables', descripcion: 'Papel higiénico, servilletas, aluminio', precioBase: 35, unidad: 'unidad', volumenMensual: 7200, clientes: 1100 },
   { id: 6, nombre: 'Producto Industrial F', descripcion: 'Equipo industrial y maquinaria', precioBase: 25000.00, unidad: 'equipo', volumenMensual: 3, clientes: 5 },
 ]
 
@@ -282,7 +282,7 @@ export default function GastosOperativos() {
           <div>
             <h1 className="text-2xl font-semibold">Gastos Operativos</h1>
             <p className="text-sm text-[var(--text-muted)]">
-              Análisis de costos · Proyección · Control de gastos de Empresa Industrial
+              Análisis de costos · Proyección · Control de gastos de Supermercados Unidos
             </p>
           </div>
         </div>
@@ -678,7 +678,7 @@ export default function GastosOperativos() {
       <div className="card">
         <div className="section-header">
           <InformationCircleIcon className="w-5 h-5 text-[var(--accent-blue)]" />
-          <h2 className="font-semibold">Productos Ofrecidos por Empresa Industrial</h2>
+          <h2 className="font-semibold">Productos Ofrecidos por Supermercados Unidos</h2>
           <span className="ml-auto text-xs text-[var(--text-muted)]">
             Ingresos por línea de servicio
           </span>
