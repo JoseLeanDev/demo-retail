@@ -291,7 +291,7 @@ export default function Dashboard() {
             <span className={`text-xs font-semibold ${cumplimientoVentas >= 100 ? 'text-emerald-600' : 'text-amber-600'}`}>
               {cumplimientoVentas}% meta
             </span>
-            <span className="text-[10px] text-[var(--text-muted)] ml-1">· Q{cumplimientoVentas >= 100 ? '+' : ''}{formatGTQ(Math.abs(totalVentasMes - totalPresupuesto)).replace('Q ', '')} vs presup.</span>
+            <span className="text-[10px] text-[var(--text-muted)] ml-1">· Q{cumplimientoVentas >= 100 ? '+' : ''}{formatGTQ(Math.abs(totalVentasMes - totalPresupuesto)).replace('Q ', '')} vs meta</span>
           </div>
         </div>
 
@@ -369,7 +369,7 @@ export default function Dashboard() {
             </div>
             <div>
               <h2 className="font-semibold text-sm">Tendencia de Ventas</h2>
-              <p className="text-[11px] text-[var(--text-muted)]">Ventas vs Presupuesto · 7 meses YTD</p>
+              <p className="text-[11px] text-[var(--text-muted)]">Ventas vs Meta · 7 meses YTD</p>
             </div>
           </div>
           <span className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700">+7.2% YTD</span>
@@ -390,7 +390,7 @@ export default function Dashboard() {
                 <Tooltip content={<CustomTooltip />} />
                 <Legend wrapperStyle={{ fontSize: 12, paddingTop: 8 }} />
                 <Area type="monotone" dataKey="ventas" name="Ventas" stroke="#001639" strokeWidth={2.5} fill="url(#colorVentas)" />
-                <Area type="monotone" dataKey="presupuesto" name="Presupuesto" stroke="#94a3b8" strokeWidth={1.5} strokeDasharray="6 4" fill="none" />
+                <Area type="monotone" dataKey="presupuesto" name="Meta" stroke="#94a3b8" strokeWidth={1.5} strokeDasharray="6 4" fill="none" />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -400,7 +400,7 @@ export default function Dashboard() {
               <p className="text-base font-bold mt-0.5">Q30.1M</p>
             </div>
             <div>
-              <p className="text-[10px] text-[var(--text-muted)] uppercase tracking-wide font-medium">vs Presupuesto</p>
+              <p className="text-[10px] text-[var(--text-muted)] uppercase tracking-wide font-medium">vs Meta</p>
               <p className="text-base font-bold mt-0.5 text-emerald-600">+4.2%</p>
             </div>
             <div>
@@ -508,18 +508,6 @@ export default function Dashboard() {
                   </div>
                 )
               })}
-            </div>
-            <div className="h-40">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={sucursales} layout="vertical" margin={{ top: 0, right: 10, left: 100, bottom: 0 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" horizontal={false} />
-                  <XAxis type="number" tick={{ fontSize: 10, fill: '#6b7280' }} tickFormatter={(v) => `Q${(v/1000).toFixed(0)}K`} axisLine={false} tickLine={false} />
-                  <YAxis type="category" dataKey="nombre" tick={{ fontSize: 11, fill: '#374151' }} width={95} axisLine={false} tickLine={false} />
-                  <Tooltip content={<CustomTooltip />} />
-                  <Bar dataKey="ventas" name="Ventas" fill="#001639" radius={[0, 4, 4, 0]} barSize={14} />
-                  <Bar dataKey="meta" name="Meta" fill="#cbd5e1" radius={[0, 4, 4, 0]} barSize={14} />
-                </BarChart>
-              </ResponsiveContainer>
             </div>
           </div>
         </div>
