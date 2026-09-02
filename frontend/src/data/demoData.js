@@ -221,60 +221,55 @@ function generarHistorial(promedio, tendencia) {
 }
 
 export const demoHistorialVentasProducto = [
-  // Eléctrico
-  { id: 1, nombre: 'Cable THW 12 AWG (Rollo 100m)', linea: 'Eléctrico', precioVenta: 265, costoUnitario: 180, historial: generarHistorial(420, 'up'), margen: 32, proveedor: 'Elektra Guatemala' },
-  { id: 2, nombre: 'Interruptor Breaker 2P 30A', linea: 'Eléctrico', precioVenta: 220, costoUnitario: 145, historial: generarHistorial(185, 'up'), margen: 35, proveedor: 'Elektra Guatemala' },
-  { id: 3, nombre: 'Foco LED 9W (Caja 10 unds)', linea: 'Eléctrico', precioVenta: 135, costoUnitario: 95, historial: generarHistorial(140, 'up'), margen: 40, proveedor: 'Elektra Guatemala' },
-  { id: 4, nombre: 'Caja de Breakers 8 espacios', linea: 'Eléctrico', precioVenta: 450, costoUnitario: 320, historial: generarHistorial(55, 'stable'), margen: 29, proveedor: 'Elektra Guatemala' },
-  { id: 5, nombre: 'Cable THW 10 AWG (Rollo 100m)', linea: 'Eléctrico', precioVenta: 360, costoUnitario: 240, historial: generarHistorial(210, 'up'), margen: 33, proveedor: 'Elektra Guatemala' },
-  { id: 6, nombre: 'Tomacorriente duplex blanco', linea: 'Eléctrico', precioVenta: 50, costoUnitario: 35, historial: generarHistorial(280, 'stable'), margen: 30, proveedor: 'Elektra Guatemala' },
-  { id: 7, nombre: 'Breakers 1P 20A', linea: 'Eléctrico', precioVenta: 90, costoUnitario: 65, historial: generarHistorial(220, 'up'), margen: 28, proveedor: 'Elektra Guatemala' },
-  { id: 8, nombre: 'Plafón LED 18W cuadrado', linea: 'Eléctrico', precioVenta: 175, costoUnitario: 125, historial: generarHistorial(90, 'up'), margen: 29, proveedor: 'Elektra Guatemala' },
-  // Plomería
-  { id: 9, nombre: 'Tubo PVC 1/2" (Caja 20 unds)', linea: 'Plomería', precioVenta: 120, costoUnitario: 85, historial: generarHistorial(260, 'up'), margen: 29, proveedor: 'Plomería Centroamericana' },
-  { id: 10, nombre: 'Llave de Paso 1/2"', linea: 'Plomería', precioVenta: 105, costoUnitario: 75, historial: generarHistorial(165, 'stable'), margen: 29, proveedor: 'Plomería Centroamericana' },
-  { id: 11, nombre: 'Codo PVC 1/2" (Caja 50 unds)', linea: 'Plomería', precioVenta: 65, costoUnitario: 45, historial: generarHistorial(180, 'up'), margen: 31, proveedor: 'Plomería Centroamericana' },
-  { id: 12, nombre: 'Pegamento PVC 1/4 galón', linea: 'Plomería', precioVenta: 78, costoUnitario: 55, historial: generarHistorial(95, 'stable'), margen: 29, proveedor: 'Plomería Centroamericana' },
-  { id: 13, nombre: 'Tubo PVC 3/4" (Caja 15 unds)', linea: 'Plomería', precioVenta: 155, costoUnitario: 110, historial: generarHistorial(145, 'up'), margen: 29, proveedor: 'Plomería Centroamericana' },
-  { id: 14, nombre: 'Llave de chorro 1/2" cromada', linea: 'Plomería', precioVenta: 230, costoUnitario: 165, historial: generarHistorial(75, 'down'), margen: 28, proveedor: 'Plomería Centroamericana' },
-  { id: 15, nombre: 'Cementarropa 1/2" (Caja 25 unds)', linea: 'Plomería', precioVenta: 50, costoUnitario: 35, historial: generarHistorial(85, 'stable'), margen: 30, proveedor: 'Plomería Centroamericana' },
-  { id: 16, nombre: 'Sanitario blanco económico', linea: 'Plomería', precioVenta: 580, costoUnitario: 420, historial: generarHistorial(40, 'stable'), margen: 28, proveedor: 'Plomería Centroamericana' },
-  // Construcción
-  { id: 17, nombre: 'Cemento Portland 42.5kg', linea: 'Construcción', precioVenta: 105, costoUnitario: 85, historial: generarHistorial(185, 'stable'), margen: 19, proveedor: 'Cementos Progreso' },
-  { id: 18, nombre: 'Lámina Galvanizada 3x8 pies', linea: 'Construcción', precioVenta: 480, costoUnitario: 380, historial: generarHistorial(65, 'up'), margen: 21, proveedor: 'Cementos Progreso' },
-  { id: 19, nombre: 'Varilla corrugada 3/8" (und)', linea: 'Construcción', precioVenta: 35, costoUnitario: 28, historial: generarHistorial(420, 'stable'), margen: 20, proveedor: 'Cementos Progreso' },
-  { id: 20, nombre: 'Arena fina (m3)', linea: 'Construcción', precioVenta: 150, costoUnitario: 120, historial: generarHistorial(40, 'down'), margen: 20, proveedor: 'Materiales El Volcán' },
-  { id: 21, nombre: 'Grava 3/4" (m3)', linea: 'Construcción', precioVenta: 168, costoUnitario: 135, historial: generarHistorial(35, 'stable'), margen: 20, proveedor: 'Materiales El Volcán' },
-  { id: 22, nombre: 'Block 10x20x40 (und)', linea: 'Construcción', precioVenta: 11, costoUnitario: 8.5, historial: generarHistorial(1800, 'up'), margen: 23, proveedor: 'Blockera La Unión' },
-  { id: 23, nombre: 'Alambre recocido (kg)', linea: 'Construcción', precioVenta: 28, costoUnitario: 22, historial: generarHistorial(85, 'stable'), margen: 21, proveedor: 'Cementos Progreso' },
-  { id: 24, nombre: 'Clavo 2" (Caja 25kg)', linea: 'Construcción', precioVenta: 120, costoUnitario: 95, historial: generarHistorial(70, 'down'), margen: 21, proveedor: 'Ferretería El Clavo' },
-  // Pinturas
-  { id: 25, nombre: 'Pintura Latex Blanca 1 Galón', linea: 'Pinturas', precioVenta: 220, costoUnitario: 165, historial: generarHistorial(220, 'up'), margen: 25, proveedor: 'Pinturas Sherwin Williams' },
-  { id: 26, nombre: 'Pintura Latex Blanca 5 Galones', linea: 'Pinturas', precioVenta: 880, costoUnitario: 680, historial: generarHistorial(75, 'up'), margen: 23, proveedor: 'Pinturas Sherwin Williams' },
-  { id: 27, nombre: 'Esmalte Brillante Rojo 1/4 galón', linea: 'Pinturas', precioVenta: 110, costoUnitario: 85, historial: generarHistorial(55, 'stable'), margen: 23, proveedor: 'Pinturas Sherwin Williams' },
-  { id: 28, nombre: 'Brocha 3" profesional', linea: 'Pinturas', precioVenta: 58, costoUnitario: 45, historial: generarHistorial(140, 'stable'), margen: 22, proveedor: 'Pinturas Sherwin Williams' },
-  { id: 29, nombre: 'Rodillo 9" felpa', linea: 'Pinturas', precioVenta: 82, costoUnitario: 65, historial: generarHistorial(90, 'up'), margen: 21, proveedor: 'Pinturas Sherwin Williams' },
-  { id: 30, nombre: 'Thinner 1 galón', linea: 'Pinturas', precioVenta: 120, costoUnitario: 95, historial: generarHistorial(45, 'down'), margen: 21, proveedor: 'Pinturas Sherwin Williams' },
-  { id: 31, nombre: 'Masilla plástica 1kg', linea: 'Pinturas', precioVenta: 45, costoUnitario: 35, historial: generarHistorial(85, 'stable'), margen: 22, proveedor: 'Pinturas Sherwin Williams' },
-  { id: 32, nombre: 'Cinta masking 2" (rollo)', linea: 'Pinturas', precioVenta: 32, costoUnitario: 25, historial: generarHistorial(185, 'up'), margen: 22, proveedor: 'Pinturas Sherwin Williams' },
-  // Herramientas
-  { id: 33, nombre: 'Taladro percutor 1/2" 650W', linea: 'Herramientas', precioVenta: 1180, costoUnitario: 850, historial: generarHistorial(22, 'up'), margen: 28, proveedor: 'Black & Decker CA' },
-  { id: 34, nombre: 'Sierra caladora 450W', linea: 'Herramientas', precioVenta: 980, costoUnitario: 720, historial: generarHistorial(12, 'stable'), margen: 27, proveedor: 'Black & Decker CA' },
-  { id: 35, nombre: 'Martillo carpintero 16oz', linea: 'Herramientas', precioVenta: 128, costoUnitario: 95, historial: generarHistorial(45, 'stable'), margen: 26, proveedor: 'Black & Decker CA' },
-  { id: 36, nombre: 'Cinta métrica 5m profesional', linea: 'Herramientas', precioVenta: 88, costoUnitario: 65, historial: generarHistorial(75, 'up'), margen: 26, proveedor: 'Black & Decker CA' },
-  { id: 37, nombre: 'Nivel de burbuja 24"', linea: 'Herramientas', precioVenta: 248, costoUnitario: 185, historial: generarHistorial(20, 'stable'), margen: 25, proveedor: 'Black & Decker CA' },
-  { id: 38, nombre: 'Juego destornilladores 6pzas', linea: 'Herramientas', precioVenta: 168, costoUnitario: 125, historial: generarHistorial(42, 'up'), margen: 26, proveedor: 'Black & Decker CA' },
-  { id: 39, nombre: 'Amoladora angular 4-1/2" 820W', linea: 'Herramientas', precioVenta: 880, costoUnitario: 650, historial: generarHistorial(14, 'up'), margen: 26, proveedor: 'Black & Decker CA' },
-  { id: 40, nombre: 'Guantes de cuero (par)', linea: 'Herramientas', precioVenta: 60, costoUnitario: 45, historial: generarHistorial(120, 'up'), margen: 25, proveedor: 'Black & Decker CA' },
-  // Jardinería
-  { id: 41, nombre: 'Manguera 1/2" 20m reforzada', linea: 'Jardinería', precioVenta: 220, costoUnitario: 165, historial: generarHistorial(75, 'up'), margen: 25, proveedor: 'Garden Center GT' },
-  { id: 42, nombre: 'Aspersor oscillante plástico', linea: 'Jardinería', precioVenta: 165, costoUnitario: 125, historial: generarHistorial(45, 'up'), margen: 24, proveedor: 'Garden Center GT' },
-  { id: 43, nombre: 'Maceta plástica 12" (und)', linea: 'Jardinería', precioVenta: 48, costoUnitario: 35, historial: generarHistorial(185, 'up'), margen: 27, proveedor: 'Garden Center GT' },
-  { id: 44, nombre: 'Fertilizante NPK 1kg', linea: 'Jardinería', precioVenta: 72, costoUnitario: 55, historial: generarHistorial(135, 'up'), margen: 24, proveedor: 'Garden Center GT' },
-  { id: 45, nombre: 'Pala de jardín mango corto', linea: 'Jardinería', precioVenta: 110, costoUnitario: 85, historial: generarHistorial(35, 'stable'), margen: 23, proveedor: 'Garden Center GT' },
-  { id: 46, nombre: 'Tijeras de podar 8"', linea: 'Jardinería', precioVenta: 162, costoUnitario: 125, historial: generarHistorial(28, 'up'), margen: 23, proveedor: 'Garden Center GT' },
-  { id: 47, nombre: 'Tierra abonada 10kg', linea: 'Jardinería', precioVenta: 58, costoUnitario: 45, historial: generarHistorial(65, 'up'), margen: 22, proveedor: 'Garden Center GT' },
-  { id: 48, nombre: 'Rastrillo de jardín 14 dientes', linea: 'Jardinería', precioVenta: 118, costoUnitario: 95, historial: generarHistorial(22, 'stable'), margen: 20, proveedor: 'Garden Center GT' },
+  // ========== CALZADO ==========
+  { id: 1, nombre: 'Nike Air Zoom Pegasus 40', linea: 'Calzado', precioVenta: 1295, costoUnitario: 750, historial: generarHistorial(145, 'up'), margen: 42, proveedor: 'Nike Centroamérica' },
+  { id: 2, nombre: 'Nike Air Force 1 \'07', linea: 'Calzado', precioVenta: 1195, costoUnitario: 680, historial: generarHistorial(165, 'up'), margen: 43, proveedor: 'Nike Centroamérica' },
+  { id: 3, nombre: 'Adidas Ultraboost Light', linea: 'Calzado', precioVenta: 1395, costoUnitario: 820, historial: generarHistorial(120, 'up'), margen: 41, proveedor: 'Adidas Guatemala' },
+  { id: 4, nombre: 'Adidas Forum Low', linea: 'Calzado', precioVenta: 995, costoUnitario: 580, historial: generarHistorial(155, 'up'), margen: 42, proveedor: 'Adidas Guatemala' },
+  { id: 5, nombre: 'Under Armour HOVR Phantom', linea: 'Calzado', precioVenta: 1095, costoUnitario: 620, historial: generarHistorial(95, 'up'), margen: 43, proveedor: 'Under Armour CA' },
+  { id: 6, nombre: 'Puma RS-X', linea: 'Calzado', precioVenta: 895, costoUnitario: 510, historial: generarHistorial(110, 'stable'), margen: 43, proveedor: 'Puma Centroamérica' },
+  { id: 7, nombre: 'New Balance 574', linea: 'Calzado', precioVenta: 995, costoUnitario: 590, historial: generarHistorial(85, 'up'), margen: 41, proveedor: 'New Balance GT' },
+  { id: 8, nombre: 'Reebok Nano X3', linea: 'Calzado', precioVenta: 1095, costoUnitario: 640, historial: generarHistorial(75, 'stable'), margen: 42, proveedor: 'Reebok CA' },
+
+  // ========== ROPA HOMBRE ==========
+  { id: 9, nombre: 'Nike Dri-FIT T-Shirt', linea: 'Ropa Hombre', precioVenta: 295, costoUnitario: 165, historial: generarHistorial(220, 'up'), margen: 44, proveedor: 'Nike Centroamérica' },
+  { id: 10, nombre: 'Nike Pro Shorts 6"', linea: 'Ropa Hombre', precioVenta: 345, costoUnitario: 195, historial: generarHistorial(185, 'up'), margen: 43, proveedor: 'Nike Centroamérica' },
+  { id: 11, nombre: 'Adidas Own the Run Tee', linea: 'Ropa Hombre', precioVenta: 245, costoUnitario: 135, historial: generarHistorial(195, 'up'), margen: 45, proveedor: 'Adidas Guatemala' },
+  { id: 12, nombre: 'Under Armour Tech 2.0 Polo', linea: 'Ropa Hombre', precioVenta: 375, costoUnitario: 210, historial: generarHistorial(140, 'stable'), margen: 44, proveedor: 'Under Armour CA' },
+  { id: 13, nombre: 'Puma Essentials Hoodie', linea: 'Ropa Hombre', precioVenta: 495, costoUnitario: 285, historial: generarHistorial(105, 'up'), margen: 42, proveedor: 'Puma Centroamérica' },
+  { id: 14, nombre: 'Nike Sportswear Club Fleece', linea: 'Ropa Hombre', precioVenta: 545, costoUnitario: 310, historial: generarHistorial(125, 'up'), margen: 43, proveedor: 'Nike Centroamérica' },
+  { id: 15, nombre: 'Adidas Tiro Track Pants', linea: 'Ropa Hombre', precioVenta: 445, costoUnitario: 250, historial: generarHistorial(130, 'stable'), margen: 44, proveedor: 'Adidas Guatemala' },
+  { id: 16, nombre: 'Reebok Training Compression Tee', linea: 'Ropa Hombre', precioVenta: 295, costoUnitario: 165, historial: generarHistorial(95, 'stable'), margen: 44, proveedor: 'Reebok CA' },
+
+  // ========== ROPA MUJER ==========
+  { id: 17, nombre: 'Nike Pro Leggings', linea: 'Ropa Mujer', precioVenta: 495, costoUnitario: 280, historial: generarHistorial(165, 'up'), margen: 43, proveedor: 'Nike Centroamérica' },
+  { id: 18, nombre: 'Lululemon Align Leggings 25"', linea: 'Ropa Mujer', precioVenta: 895, costoUnitario: 520, historial: generarHistorial(85, 'up'), margen: 42, proveedor: 'Lululemon CA' },
+  { id: 19, nombre: 'Adidas Yoga Essentials Tee', linea: 'Ropa Mujer', precioVenta: 265, costoUnitario: 145, historial: generarHistorial(155, 'up'), margen: 45, proveedor: 'Adidas Guatemala' },
+  { id: 20, nombre: 'Champion Reverse Weave Hoodie', linea: 'Ropa Mujer', precioVenta: 545, costoUnitario: 310, historial: generarHistorial(90, 'stable'), margen: 43, proveedor: 'Champion CA' },
+  { id: 21, nombre: 'Under Armour HeatGear Tank', linea: 'Ropa Mujer', precioVenta: 245, costoUnitario: 135, historial: generarHistorial(120, 'up'), margen: 45, proveedor: 'Under Armour CA' },
+  { id: 22, nombre: 'Nike Yoga Luxe Crop Top', linea: 'Ropa Mujer', precioVenta: 395, costoUnitario: 220, historial: generarHistorial(110, 'up'), margen: 44, proveedor: 'Nike Centroamérica' },
+  { id: 23, nombre: 'Adidas Terrex Multi Tee', linea: 'Ropa Mujer', precioVenta: 295, costoUnitario: 165, historial: generarHistorial(100, 'stable'), margen: 44, proveedor: 'Adidas Guatemala' },
+  { id: 24, nombre: 'Puma Classics T7 Track Jacket', linea: 'Ropa Mujer', precioVenta: 595, costoUnitario: 340, historial: generarHistorial(75, 'up'), margen: 43, proveedor: 'Puma Centroamérica' },
+
+  // ========== ACCESORIOS ==========
+  { id: 25, nombre: 'Nike Heritage Backpack', linea: 'Accesorios', precioVenta: 495, costoUnitario: 280, historial: generarHistorial(130, 'up'), margen: 43, proveedor: 'Nike Centroamérica' },
+  { id: 26, nombre: 'Adidas Santiago Lunch Bag', linea: 'Accesorios', precioVenta: 245, costoUnitario: 135, historial: generarHistorial(95, 'up'), margen: 45, proveedor: 'Adidas Guatemala' },
+  { id: 27, nombre: 'Nike Everyday Cushioned Socks (3 pares)', linea: 'Accesorios', precioVenta: 195, costoUnitario: 105, historial: generarHistorial(240, 'up'), margen: 46, proveedor: 'Nike Centroamérica' },
+  { id: 28, nombre: 'Under Armour Contender Backpack', linea: 'Accesorios', precioVenta: 425, costoUnitario: 240, historial: generarHistorial(85, 'stable'), margen: 44, proveedor: 'Under Armour CA' },
+  { id: 29, nombre: 'Nike Pro Elbow Sleeve', linea: 'Accesorios', precioVenta: 185, costoUnitario: 95, historial: generarHistorial(155, 'up'), margen: 49, proveedor: 'Nike Centroamérica' },
+  { id: 30, nombre: 'Adidas Baseball Cap', linea: 'Accesorios', precioVenta: 225, costoUnitario: 120, historial: generarHistorial(180, 'up'), margen: 47, proveedor: 'Adidas Guatemala' },
+  { id: 31, nombre: 'Puma Phase Waist Bag', linea: 'Accesorios', precioVenta: 195, costoUnitario: 105, historial: generarHistorial(115, 'stable'), margen: 46, proveedor: 'Puma Centroamérica' },
+  { id: 32, nombre: 'Nike Swoosh Headband', linea: 'Accesorios', precioVenta: 125, costoUnitario: 65, historial: generarHistorial(210, 'up'), margen: 48, proveedor: 'Nike Centroamérica' },
+
+  // ========== EQUIPAMIENTO ==========
+  { id: 33, nombre: 'Nike Dominate Basketball', linea: 'Equipamiento', precioVenta: 395, costoUnitario: 220, historial: generarHistorial(85, 'up'), margen: 44, proveedor: 'Nike Centroamérica' },
+  { id: 34, nombre: 'Adidas Capitano Ball', linea: 'Equipamiento', precioVenta: 295, costoUnitario: 160, historial: generarHistorial(110, 'stable'), margen: 46, proveedor: 'Adidas Guatemala' },
+  { id: 35, nombre: 'Nike Yoga Mat', linea: 'Equipamiento', precioVenta: 425, costoUnitario: 235, historial: generarHistorial(65, 'up'), margen: 45, proveedor: 'Nike Centroamérica' },
+  { id: 36, nombre: 'Under Armour Resistance Bands', linea: 'Equipamiento', precioVenta: 185, costoUnitario: 95, historial: generarHistorial(145, 'up'), margen: 49, proveedor: 'Under Armour CA' },
+  { id: 37, nombre: 'Nike Speed Rope', linea: 'Equipamiento', precioVenta: 245, costoUnitario: 130, historial: generarHistorial(120, 'up'), margen: 47, proveedor: 'Nike Centroamérica' },
+  { id: 38, nombre: 'Adidas Foam Roller', linea: 'Equipamiento', precioVenta: 295, costoUnitario: 160, historial: generarHistorial(75, 'stable'), margen: 46, proveedor: 'Adidas Guatemala' },
+  { id: 39, nombre: 'Puma Training Kettlebell 8kg', linea: 'Equipamiento', precioVenta: 345, costoUnitario: 195, historial: generarHistorial(55, 'up'), margen: 43, proveedor: 'Puma Centroamérica' },
+  { id: 40, nombre: 'Nike Gym Sack', linea: 'Equipamiento', precioVenta: 175, costoUnitario: 90, historial: generarHistorial(165, 'up'), margen: 49, proveedor: 'Nike Centroamérica' },
 ];
 
 // Meses para labels de historial

@@ -29,15 +29,14 @@ const formatNum = (value) => {
   return value.toLocaleString('es-GT')
 }
 
-const lineas = ['todas', 'Eléctrico', 'Plomería', 'Construcción', 'Pinturas', 'Herramientas', 'Jardinería']
+const lineas = ['todas', 'Calzado', 'Ropa Hombre', 'Ropa Mujer', 'Accesorios', 'Equipamiento']
 
 const coloresLinea = {
-  'Eléctrico': '#2563EB',
-  'Plomería': '#059669',
-  'Construcción': '#D97706',
-  'Pinturas': '#7C3AED',
-  'Herramientas': '#DC2626',
-  'Jardinería': '#0891B2',
+  'Calzado': '#2563EB',
+  'Ropa Hombre': '#059669',
+  'Ropa Mujer': '#D97706',
+  'Accesorios': '#7C3AED',
+  'Equipamiento': '#DC2626',
 }
 
 // ============================================
