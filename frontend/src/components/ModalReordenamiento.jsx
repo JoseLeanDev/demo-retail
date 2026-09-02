@@ -102,6 +102,23 @@ function GraficaNivelInventario({ producto, calc }) {
   const yPuntoReorden = yScale(calc.puntoReorden)
   const yStockActual = yScale(producto.stock)
 
+  // Detectar si las líneas de referencia están muy cerca para evitar superposición de etiquetas
+  const minLabelGap = 28
+  const linesClose = Math.abs(yPuntoReorden - yStockSeg) < minLabelGap
+
+  // Determinar posición vertical de etiquetas para que no se encimen
+  let segLabelY = yStockSeg
+  let reordenLabelY = yPuntoReorden
+  if (linesClose) {
+    if (yStockSeg <= yPuntoReorden) {
+      segLabelY = yStockSeg - 6
+      reordenLabelY = yPuntoReorden + 6
+    } else {
+      segLabelY = yStockSeg + 6
+      reordenLabelY = yPuntoReorden - 6
+    }
+  }
+
   return (
     <div className="bg-[var(--bg-secondary)] rounded-lg p-4">
       <div className="flex items-center justify-between mb-3">
@@ -179,25 +196,26 @@ function GraficaNivelInventario({ producto, calc }) {
           strokeDasharray="6,3"
           strokeWidth={1.5}
         />
+        {/* Fondo más opaco para mejor legibilidad */}
         <rect
-          x={width - padding.right - 110}
-          y={yStockSeg - 10}
-          width={110}
-          height={18}
-          rx={3}
-          fill="rgba(239,68,68,0.12)"
+          x={width - padding.right - 118}
+          y={segLabelY - 11}
+          width={118}
+          height={20}
+          rx={4}
+          fill="rgba(239,68,68,0.18)"
           stroke="#ef4444"
-          strokeWidth={0.5}
+          strokeWidth={0.8}
         />
         <text
-          x={width - padding.right - 5}
-          y={yStockSeg + 3}
+          x={width - padding.right - 6}
+          y={segLabelY + 4}
           textAnchor="end"
-          fontSize={9}
+          fontSize={10}
           fontWeight={600}
-          fill="#ef4444"
+          fill="#dc2626"
         >
-          Stock Seguridad: {formatNum(calc.stockSeguridad)}
+          Stock Seg: {formatNum(calc.stockSeguridad)}
         </text>
 
         {/* Línea de punto de reorden */}
@@ -210,22 +228,23 @@ function GraficaNivelInventario({ producto, calc }) {
           strokeDasharray="6,3"
           strokeWidth={1.5}
         />
+        {/* Fondo más opaco para mejor legibilidad */}
         <rect
-          x={padding.left + 5}
-          y={yPuntoReorden - 10}
-          width={115}
-          height={18}
-          rx={3}
-          fill="rgba(245,158,11,0.12)"
+          x={padding.left + 4}
+          y={reordenLabelY - 11}
+          width={120}
+          height={20}
+          rx={4}
+          fill="rgba(245,158,11,0.22)"
           stroke="#f59e0b"
-          strokeWidth={0.5}
+          strokeWidth={0.8}
         />
         <text
           x={padding.left + 10}
-          y={yPuntoReorden + 3}
-          fontSize={9}
+          y={reordenLabelY + 4}
+          fontSize={10}
           fontWeight={600}
-          fill="#f59e0b"
+          fill="#b45309"
         >
           Punto Reorden: {formatNum(calc.puntoReorden)}
         </text>
@@ -243,9 +262,9 @@ function GraficaNivelInventario({ producto, calc }) {
         <text
           x={xScale(0) + 12}
           y={yStockActual + 3}
-          fontSize={9}
+          fontSize={10}
           fontWeight={600}
-          fill="#10b981"
+          fill="#059669"
         >
           Actual: {formatNum(producto.stock)}
         </text>
