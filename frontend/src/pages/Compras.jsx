@@ -22,6 +22,7 @@ import {
   BoltIcon,
 } from '@heroicons/react/24/outline'
 import PageInsights from '../components/agents/PageInsights'
+import ModalReordenamiento from '../components/ModalReordenamiento'
 import {
   demoLineasProducto,
   demoProductosStock,
@@ -143,6 +144,7 @@ export default function Compras() {
   const [lineaSeleccionada, setLineaSeleccionada] = useState('todas')
   const [vistaExpandida, setVistaExpandida] = useState(false)
   const [mostrarSoloCriticos, setMostrarSoloCriticos] = useState(false)
+  const [productoSeleccionado, setProductoSeleccionado] = useState(null)
 
   // Calcular proyecciones y recomendaciones
   const datosLineas = useMemo(() => {
@@ -662,7 +664,11 @@ export default function Compras() {
           </div>
           <div className="p-5 pt-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
             {topRecomendaciones.map((producto) => (
-              <div key={producto.id} className="p-4 bg-[var(--bg-secondary)] rounded-lg">
+              <div 
+                key={producto.id} 
+                className="p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:bg-[var(--bg-tertiary)] transition-colors"
+                onClick={() => setProductoSeleccionado(producto)}
+              >
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[10px] uppercase font-medium text-[var(--text-muted)]">{producto.linea}</span>
                   <span className={`badge text-[10px] ${getEstadoStyles(producto.estado)}`}>{producto.estado}</span>
@@ -730,7 +736,8 @@ export default function Compras() {
               {productosCriticos.map((producto) => (
                 <tr 
                   key={producto.id} 
-                  className={producto.estado === 'Crítico' ? 'bg-red-50/30' : producto.estado === 'Bajo' ? 'bg-orange-50/30' : ''}
+                  className={`${producto.estado === 'Crítico' ? 'bg-red-50/30' : producto.estado === 'Bajo' ? 'bg-orange-50/30' : ''} cursor-pointer hover:bg-[var(--bg-tertiary)] transition-colors`}
+                  onClick={() => setProductoSeleccionado(producto)}
                 >
                   <td>
                     <p className="font-medium text-sm">{producto.nombre}</p>
@@ -796,6 +803,12 @@ export default function Compras() {
           </div>
         </div>
       </div>
+
+      {/* Modal de Reordenamiento */}
+      <ModalReordenamiento
+        producto={productoSeleccionado}
+        onClose={() => setProductoSeleccionado(null)}
+      />
     </div>
   )
 }
